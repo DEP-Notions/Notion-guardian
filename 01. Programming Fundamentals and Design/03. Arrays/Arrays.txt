@@ -1,0 +1,800 @@
+﻿Arrays
+--------------------------------------------
+
+
+import java.util.Scanner;
+
+
+public class Demo {
+   public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+       int x0, x1, x2, x3, x4, x5, x6, x7, x8, x9;
+
+
+       System.out.println("Insert Number 1");
+       x0 = input.nextInt();
+
+
+       System.out.println("Insert Number 2");
+       x1 = input.nextInt();
+
+
+       System.out.println("Insert Number 3");
+       x2 = input.nextInt();
+
+
+       System.out.println("Insert Number 4");
+       x3 = input.nextInt();
+
+
+       System.out.println("Insert Number 5");
+       x4 = input.nextInt();
+
+
+       System.out.println("Insert Number 6");
+       x5 = input.nextInt();
+
+
+       System.out.println("Insert Number 7");
+       x6 = input.nextInt();
+
+
+       System.out.println("Insert Number 8");
+       x7 = input.nextInt();
+
+
+       System.out.println("Insert Number 9");
+       x8 = input.nextInt();
+
+
+       System.out.println("Insert Number 10");
+       x9 = input.nextInt();
+
+
+       int total=0;
+       total+=x0;
+       total+=x1;
+       total+=x2;
+       total+=x3;
+       total+=x4;
+       total+=x5;
+       total+=x6;
+       total+=x7;
+       total+=x8;
+       total+=x9;
+
+
+       System.out.println("Total is : "+total);
+
+
+
+
+   }
+}
+===============================================
+import java.util.Scanner;
+
+
+public class Demo {
+   public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+       int x0, x1, x2, x3, x4, x5, x6, x7, x8, x9;
+
+
+       for (int i = 0; i <10 ; i++) {
+          
+           System.out.println("Insert Number 1");
+           xi = input.nextInt();// illegal
+
+
+       }
+     
+       System.out.println("Insert Number 2");
+       x1 = input.nextInt();
+
+
+       System.out.println("Insert Number 3");
+       x2 = input.nextInt();
+
+
+       System.out.println("Insert Number 4");
+       x3 = input.nextInt();
+
+
+       System.out.println("Insert Number 5");
+       x4 = input.nextInt();
+
+
+       System.out.println("Insert Number 6");
+       x5 = input.nextInt();
+
+
+       System.out.println("Insert Number 7");
+       x6 = input.nextInt();
+
+
+       System.out.println("Insert Number 8");
+       x7 = input.nextInt();
+
+
+       System.out.println("Insert Number 9");
+       x8 = input.nextInt();
+
+
+       System.out.println("Insert Number 10");
+       x9 = input.nextInt();
+
+
+       int total=0;
+       total+=x0;
+       total+=x1;
+       total+=x2;
+       total+=x3;
+       total+=x4;
+       total+=x5;
+       total+=x6;
+       total+=x7;
+       total+=x8;
+       total+=x9;
+
+
+       System.out.println("Total is : "+total);
+
+
+
+
+   }
+}
+======================
+import java.util.Scanner;
+
+
+public class Demo {
+   public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+       int[] x= new int[10];  //int x0, x1, x2, x3, x4, x5, x6, x7, x8, x9;
+
+
+       for (int i = 0; i <x.length ; i++) {
+
+
+           System.out.println("Insert Number "+(i+1));
+           x[i] = input.nextInt();
+
+
+       }
+
+
+       int total=0;
+       for (int i = 0; i <x.length ; i++) {
+           total+=x[i];
+       }
+
+
+       System.out.println("Total is : "+total);
+
+
+
+
+   }
+}
+==========================
+import java.util.Scanner;
+
+
+public class Demo {
+   public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+
+
+       System.out.println("Input Number of Student");
+       final int N=input.nextInt();
+      
+       // 1 create an int array named "marks" to store Student's Marks
+       // 2 insert code to read marks( Random numbers from 0 to 100)
+       // 3 insert code to find total marks
+       // 4 insert code to find the Maximum
+       // 5 insert code to find the Minimum
+       // 6 insert code to print all marks as"[20,50,84,45,...]"
+
+
+       System.out.println("Total : "+total);
+       System.out.println("Max : "+max);
+       System.out.println("Min : "+min);
+      
+   }
+}
+============================================
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class Demo {
+   public static void main(String[] args) {
+       Random random = new Random();
+       Scanner input = new Scanner(System.in);
+
+
+       System.out.println("Input Number of Student");
+       final int N = random.nextInt(10);
+
+
+       // 1 create an int array named "marks" to store Student's Marks
+       int marks[] = new int[N];
+       // 2 insert code to read marks( Random numbers from 0 to 100)
+       for (int i = 0; i < N; i++) {
+           marks[i] = random.nextInt(101);
+       }
+       // 3 insert code to find total marks
+       int total = 0;
+       for (int i = 0; i < marks.length; i++) {
+           total+=marks[i];
+       }
+       // 4 insert code to find the Maximum
+       int max=marks[0]; // 10
+       for (int i = 0; i <N ; i++) {
+           if (marks[i]>max){
+               max=marks[i];
+           }
+       }
+       // 5 insert code to find the Minimum
+       int min=marks[0]; // 10
+       for (int i = 0; i <N ; i++) {
+           if (marks[i]<min){
+               min=marks[i];
+           }
+       }
+       // 6 insert code to print all marks as"[20,50,84,45,...]"
+
+
+       System.out.print("[");
+       for (int i = 0; i <N ; i++) {
+           System.out.print(marks[i]+", ");
+       }
+      System.out.println("\b\b]");
+
+
+
+
+       System.out.println("Total : " + total);
+       System.out.println("Max : " + max);
+       System.out.println("Min : " + min);
+
+
+   }
+}
+
+
+==============================
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class Demo {
+   public static void main(String[] args) {
+       Random random = new Random();
+       for (int i = 0; i <10 ; i++) {
+           System.out.println(new Random().nextInt(101));
+       }
+   }
+}
+===========================
+
+
+public class Demo {
+   public static void main(String[] args) {
+
+
+       int x;
+       x=100;
+       System.out.println(x);
+
+
+       int[] xr; // create an array (Array Declaration)
+       xr= new int[10]; // Array Construction
+       System.out.println(xr);
+       xr[0]=100; // initialization
+       System.out.println(xr[0]);
+   }
+}
+
+
+======================================
+public class Demo {
+   public static void main(String[] args) {
+       int[] a;
+       int []b;
+       int c[];
+      /* int s[5];*/
+   }
+}
+============================================
+
+
+public class Demo {
+   public static void main(String[] args) {
+
+
+       //------1
+       int[] a= new int[5];
+       int[]b;
+       b= new int[5];
+       int[] c= new int[]; // illegal
+      
+       //--------2
+       int[] d={10,20,30,40};
+       int[] e;
+       e={10,20,30,40}; // illegal
+      
+       //--------3
+       int[] f= new int[]{10,20,30};
+       int[] g;
+       g= new int[]{10,20,30,40,50};// legal
+       int[] h= new int[5]{10,20,30,4050,60};// illegal
+      
+      
+   }
+}
+
+
+===========================================
+
+
+// default Values
+
+
+public class Demo {
+   public static void main(String[] args) {
+
+
+       int x;
+       System.out.println(x); // illegal
+
+
+       int [] xr= new int[4];
+       System.out.println(xr[0]); //legal --->0 0 0 0
+
+
+   }
+}
+==================
+
+
+// default Values
+
+
+public class Demo {
+   public static void main(String[] args) {
+
+
+       int[] a= new int[3];
+       System.out.println(a[0]+" "+a[1]+" "+a[2]);
+
+
+       long[] b= new long[3];
+       System.out.println(b[0]+" "+b[1]+" "+b[2]);
+
+
+       double[] c= new double[3];
+       System.out.println(c[0]+" "+c[1]+" "+c[2]);
+
+
+       boolean[] d= new boolean[3];
+       System.out.println(d[0]+" "+d[1]+" "+d[2]);
+
+
+   }
+}
+
+
+=================================
+
+
+// Size // Length
+
+
+import java.util.Arrays;
+
+
+public class Demo {
+   public static void main(String[] args) {
+
+
+      int[] xr= {10,20,30,40,50};
+       System.out.println("Length : "+xr.length);
+       System.out.println(Arrays.toString(xr));
+       System.out.println(xr[0] + "\n================================");
+
+
+       for (int i = 0; i < xr.length; i++) {
+           System.out.print(xr[i]+" ");
+       }
+
+
+   }
+}
+======================================
+
+
+
+
+import java.util.Arrays;
+
+
+public class Demo {
+   public static void main(String[] args) {
+
+
+     int[] xr= new int[3]; //[10][20][30]
+     xr[0]=10;
+     xr[1]=20;
+     xr[2]=30;
+     xr[3]=40;// Runtime Error  ==> Array index Out Of Bound Exception
+      
+      
+
+
+   }
+}
+
+
+==============================
+
+
+
+
+import java.util.Arrays;
+
+
+public class Demo {
+   public static void main(String[] args) {
+
+
+       int[] xr = new int[3];//[100][][]
+       double[] dr = new double[3];//[12.20][][]
+
+
+       xr[0] = 100;
+       //xr = 100; // Illegal
+       dr[0]=12.20;
+       //dr=10.15 illegal
+      
+       dr[0]=xr[0];
+       /*xr[0]=dr[0];*/
+       xr[0]=(int)dr[0];
+      
+       xr=dr;
+       dr=xr;
+      
+       xr=(int[])dr;
+       dr=(double[])xr;
+   }
+}
+===========================
+
+
+
+
+import java.util.Arrays;
+
+
+public class Demo {
+   public static void main(String[] args) {
+
+
+       int[] xr = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+       for (int i = 0; i < xr.length; i++) {
+           System.out.print(xr[i]+ " ");
+       }
+       System.out.println();
+
+
+       //----------- (for-each Loop)
+
+
+       for(int data:xr){
+           System.out.print(data+" ");
+       }
+
+
+   }
+}
+=============================
+
+
+
+
+import java.util.Arrays;
+
+
+public class Demo {
+   public static void main(String[] args) {
+       int[] xr={100,200,300};
+       System.out.println(xr[0]+ " " + xr[1]+ " " + xr[2]);
+
+
+       for (int a:xr) {
+           a++;/* System.out.println(a);*/
+       }
+       System.out.println(xr[0]+ " " + xr[1]+ " " + xr[2]);
+
+
+       for (int i = 0; i <xr.length ; i++) {
+           xr[i]++;
+       }
+       System.out.println(xr[0]+ " " + xr[1]+ " " + xr[2]);
+
+
+   }
+}
+=======================================
+
+
+
+
+import java.util.Arrays;
+
+
+public class Demo {
+
+
+   public static void increment(int[] arr) {
+       arr[0]++;
+       arr[1]++;
+       arr[2]++;
+   }
+
+
+   public static void main(String[] args) {
+       int[] xr = {100, 200, 300};
+       System.out.println(xr[0] + " " + xr[1] + " " + xr[2]);
+
+
+       increment(xr);
+
+
+       System.out.println(xr[0] + " " + xr[1] + " " + xr[2]);
+   }
+}
+==========================================
+
+
+
+
+
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Demo {
+
+
+   public static void main(String[] args) {
+       Scanner scanner = new Scanner(System.in);
+
+
+       System.out.println("Input Number of Student :");
+       final int N = scanner.nextInt();
+
+
+       // 1 create an int array named "marks" to store Student's Marks
+       int[] marks = createArray(N);
+       // 2 insert code to read marks( Random numbers from 0 to 100)
+       readMarks(marks);
+       // 3 insert code to find total marks
+       int total = findTotal(marks);
+       // 4 insert code to find the Maximum
+       int max = findMax(marks);
+       // 5 insert code to find the Minimum
+       int min = findMin(marks);
+       // 6 insert code to print all marks as"[20,50,84,45,...]"
+       printMarks(marks);
+
+
+       System.out.println("Total : " + total);
+       System.out.println("Max : " + max);
+       System.out.println("Min : " + min);
+   }
+}
+===================
+public class FinalKeyWord {
+   public static void main(String[] args) {
+       /*final int x=10;
+       System.out.println(x);
+       x=20;// illegal*/
+      
+       final int x;
+       /*System.out.println(x); illegal*/
+       x=50;
+   }
+}
+=========================================
+
+
+
+
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class Demo {
+
+
+   private static int[] createArray(int number) {
+       return new int[number];
+   }
+
+
+   private static void readMarks(int[] marks) {
+       for (int i = 0; i < marks.length; i++) {
+           marks[i] = new Random().nextInt(101);
+       }
+   }
+
+
+   private static int findTotal(int[] marks) {
+       int total = 0;
+       for (int tempData : marks
+       ) {
+           total += tempData;
+       }
+       return total;
+   }
+
+
+   private static int findMax(int[] marks) {
+       int max=marks[0];
+       for (int i = 0; i < marks.length; i++) {
+           if (marks[i]>max){
+               max=marks[i];
+           }
+       }
+
+
+       return max;
+   }
+
+
+   private static int findMin(int[] marks) {
+       int min=marks[0];
+       for (int i = 0; i < marks.length; i++) {
+           if (marks[i]<min){
+               min=marks[i];
+           }
+       }
+       return min;
+   }
+
+
+   private static void printMarks(int[] marks){
+       System.out.println(Arrays.toString(marks));
+   }
+
+
+   public static void main(String[] args) {
+       Scanner scanner = new Scanner(System.in);
+
+
+       System.out.println("Input Number of Student :");
+       final int N = scanner.nextInt();
+
+
+       // 1 create an int array named "marks" to store Student's Marks
+       int[] marks = createArray(N);
+       // 2 insert code to read marks( Random numbers from 0 to 100)
+       readMarks(marks);
+       // 3 insert code to find total marks
+       int total = findTotal(marks);
+       // 4 insert code to find the Maximum
+       int max = findMax(marks);
+       // 5 insert code to find the Minimum
+       int min = findMin(marks);
+       // 6 insert code to print all marks as"[20,50,84,45,...]"
+       printMarks(marks);
+
+
+       System.out.println("Total : " + total);
+       System.out.println("Max : " + max);
+       System.out.println("Min : " + min);
+   }
+}
+=============================
+
+
+
+
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class Demo {
+
+
+   private static int[] createArray(int number) {
+       return new int[number];
+   }
+
+
+   private static void readMarks(int[] marks, Random random) {
+       for (int i = 0; i < marks.length; i++) {
+           marks[i] = random.nextInt(101);
+       }
+   }
+
+
+   private static int findTotal(int[] marks) {
+       int total = 0;
+       for (int tempData : marks
+       ) {
+           total += tempData;
+       }
+       return total;
+   }
+
+
+   private static int findMax(int[] marks) {
+       int max=marks[0];
+       for (int i = 0; i < marks.length; i++) {
+           if (marks[i]>max){
+               max=marks[i];
+           }
+       }
+
+
+       return max;
+   }
+
+
+   private static int findMin(int[] marks) {
+       int min=marks[0];
+       for (int i = 0; i < marks.length; i++) {
+           if (marks[i]<min){
+               min=marks[i];
+           }
+       }
+       return min;
+   }
+
+
+   private static void printMarks(int[] marks){
+       System.out.println(Arrays.toString(marks));
+   }
+
+
+   public static void main(String[] args) {
+       Scanner scanner = new Scanner(System.in);
+       Random random = new Random();
+
+
+       System.out.println("Input Number of Student :");
+       final int N = scanner.nextInt();
+
+
+       // 1 create an int array named "marks" to store Student's Marks
+       int[] marks = createArray(N);
+       // 2 insert code to read marks( Random numbers from 0 to 100)
+       readMarks(marks,random);
+       // 3 insert code to find total marks
+       int total = findTotal(marks);
+       // 4 insert code to find the Maximum
+       int max = findMax(marks);
+       // 5 insert code to find the Minimum
+       int min = findMin(marks);
+       // 6 insert code to print all marks as"[20,50,84,45,...]"
+       printMarks(marks);
+
+
+       System.out.println("Total : " + total);
+       System.out.println("Max : " + max);
+       System.out.println("Min : " + min);
+   }
+}
+
+
+=================
+Array Searching
+Array Sorting (Bubble,Selection)
+=================

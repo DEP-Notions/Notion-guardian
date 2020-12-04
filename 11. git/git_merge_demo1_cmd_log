@@ -1,0 +1,260 @@
+lucky@lucky-hp:~/DEP_Projects/11. git/git_merge/DEMO1$ code .
+lucky@lucky-hp:~/DEP_Projects/11. git/git_merge/DEMO1$ git init
+Initialised empty Git repository in /home/lucky/DEP_Projects/11. git/git_merge/DEMO1/.git/
+lucky@lucky-hp:~/DEP_Projects/11. git/git_merge/DEMO1$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README
+
+nothing added to commit but untracked files present (use "git add" to track)
+lucky@lucky-hp:~/DEP_Projects/11. git/git_merge/DEMO1$ PS1="> "
+> git add .
+> git commit -m "Initial commit"
+[master (root-commit) b2b290f] Initial commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README
+> git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README
+
+no changes added to commit (use "git add" and/or "git commit -a")
+> git commit -am "add some content to the README"
+[master 3a9ae57] add some content to the README
+ 1 file changed, 3 insertions(+)
+> git status
+On branch master
+nothing to commit, working tree clean
+> git switch -c license
+Switched to a new branch 'license'
+> git branch
+* license
+  master
+> git add .
+> git commit -m "add LICENSE file"
+[license 3e396b8] add LICENSE file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 LICENSE
+> git commit -am "add LICENSE file content"
+[license 8a110a0] add LICENSE file content
+ 1 file changed, 21 insertions(+)
+> git switch master
+Switched to branch 'master'
+> git merge license
+Updating 3a9ae57..8a110a0
+Fast-forward
+ LICENSE | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+ create mode 100644 LICENSE
+> git log --oneline
+8a110a0 (HEAD -> master, license) add LICENSE file content
+3e396b8 add LICENSE file
+3a9ae57 add some content to the README
+b2b290f Initial commit
+> git branch
+  license
+* master
+> git checkout -b website
+Switched to a new branch 'website'
+> git branch
+  license
+  master
+* website
+> git add .
+> git commit -m "add index.html"
+[website 512e8b9] add index.html
+ 1 file changed, 11 insertions(+)
+ create mode 100644 index.html
+> git commit -am "add content to index.html"
+[website f7619c2] add content to index.html
+ 1 file changed, 1 insertion(+)
+> git switch license
+Switched to branch 'license'
+> git commit -am "edit license copyright"
+[license 29a704e] edit license copyright
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+> git switch master
+Switched to branch 'master'
+> git merge license
+Updating 8a110a0..29a704e
+Fast-forward
+ LICENSE | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+> git log --oneline
+29a704e (HEAD -> master, license) edit license copyright
+8a110a0 add LICENSE file content
+3e396b8 add LICENSE file
+3a9ae57 add some content to the README
+b2b290f Initial commit
+> git log --oneline --all
+29a704e (HEAD -> master, license) edit license copyright
+f7619c2 (website) add content to index.html
+512e8b9 add index.html
+8a110a0 add LICENSE file content
+3e396b8 add LICENSE file
+3a9ae57 add some content to the README
+b2b290f Initial commit
+> git log --oneline --all --graph
+* 29a704e (HEAD -> master, license) edit license copyright
+| * f7619c2 (website) add content to index.html
+| * 512e8b9 add index.html
+|/  
+* 8a110a0 add LICENSE file content
+* 3e396b8 add LICENSE file
+* 3a9ae57 add some content to the README
+* b2b290f Initial commit
+> git branch
+  license
+* master
+  website
+> git merge website
+Merge made by the 'recursive' strategy.
+ index.html | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+ create mode 100644 index.html
+> git log --oneline --all --graph
+*   a186a54 (HEAD -> master) Merge branch 'website'
+|\  
+| * f7619c2 (website) add content to index.html
+| * 512e8b9 add index.html
+* | 29a704e (license) edit license copyright
+|/  
+* 8a110a0 add LICENSE file content
+* 3e396b8 add LICENSE file
+* 3a9ae57 add some content to the README
+* b2b290f Initial commit
+> git log --oneline --all
+a186a54 (HEAD -> master) Merge branch 'website'
+29a704e (license) edit license copyright
+f7619c2 (website) add content to index.html
+512e8b9 add index.html
+8a110a0 add LICENSE file content
+3e396b8 add LICENSE file
+3a9ae57 add some content to the README
+b2b290f Initial commit
+> git branch --merged
+  license
+* master
+  website
+> git branch --no-merged
+> git switch -c manage-customers
+Switched to a new branch 'manage-customers'
+> git add .
+> git add .
+> git commit -m "Add manage-customers.html"
+[manage-customers 4c3e54f] Add manage-customers.html
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 manage-customers.html
+> git commit -am "Add content to manage-customers.html"
+[manage-customers eaba775] Add content to manage-customers.html
+ 1 file changed, 12 insertions(+)
+> git switch master
+Switched to branch 'master'
+> git branch
+  license
+  manage-customers
+* master
+  website
+> git merge --no-ff manage-customers
+Merge made by the 'recursive' strategy.
+ manage-customers.html | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+ create mode 100644 manage-customers.html
+> git log --oneline
+baa1c5b (HEAD -> master) Merge branch 'manage-customers'
+eaba775 (manage-customers) Add content to manage-customers.html
+4c3e54f Add manage-customers.html
+a186a54 Merge branch 'website'
+29a704e (license) edit license copyright
+f7619c2 (website) add content to index.html
+512e8b9 add index.html
+8a110a0 add LICENSE file content
+3e396b8 add LICENSE file
+3a9ae57 add some content to the README
+b2b290f Initial commit
+> git switch -c manage-items
+Switched to a new branch 'manage-items'
+> git add .
+> git commit -m "Add manage-items.html
+> git commit -am "Add content to manage-items.html"
+> git branch
+> git switch master
+> git branch
+> ^C
+> git log --oneline --all --graph
+*   baa1c5b (HEAD -> manage-items, master) Merge branch 'manage-customers'
+|\  
+| * eaba775 (manage-customers) Add content to manage-customers.html
+| * 4c3e54f Add manage-customers.html
+|/  
+*   a186a54 Merge branch 'website'
+|\  
+| * f7619c2 (website) add content to index.html
+| * 512e8b9 add index.html
+* | 29a704e (license) edit license copyright
+|/  
+* 8a110a0 add LICENSE file content
+* 3e396b8 add LICENSE file
+* 3a9ae57 add some content to the README
+* b2b290f Initial commit
+> git branch
+  license
+  manage-customers
+* manage-items
+  master
+  website
+> git status
+On branch manage-items
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   manage-items.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   manage-items.html
+
+> git commit -m "Add manage-items.html"
+[manage-items 7ce8a7b] Add manage-items.html
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 manage-items.html
+> git commit  -am "Add conter to manage-items.html"
+[manage-items 30807fc] Add conter to manage-items.html
+ 1 file changed, 12 insertions(+)
+> git merge --no-ff --no-commit manage-items
+Already up-to-date.
+> git switch master
+Switched to branch 'master'
+> git merge --no-ff --no-commit manage-items
+Automatic merge went well; stopped before committing as requested
+> git commit -am "merged manage-items"
+[master c935e79] merged manage-items
+> git log --oneline --all --graph
+*   c935e79 (HEAD -> master) merged manage-items
+|\  
+| * 30807fc (manage-items) Add conter to manage-items.html
+| * 7ce8a7b Add manage-items.html
+|/  
+*   baa1c5b Merge branch 'manage-customers'
+|\  
+| * eaba775 (manage-customers) Add content to manage-customers.html
+| * 4c3e54f Add manage-customers.html
+|/  
+*   a186a54 Merge branch 'website'
+|\  
+| * f7619c2 (website) add content to index.html
+| * 512e8b9 add index.html
+* | 29a704e (license) edit license copyright
+|/  
+* 8a110a0 add LICENSE file content
+* 3e396b8 add LICENSE file
+* 3a9ae57 add some content to the README
+* b2b290f Initial commit
+> 
+

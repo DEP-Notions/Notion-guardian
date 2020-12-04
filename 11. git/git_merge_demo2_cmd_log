@@ -1,0 +1,128 @@
+> git init
+Initialised empty Git repository in /home/lucky/DEP_Projects/11. git/git_merge/DEMO2/.git/
+> git add .
+> git commit -m "Initial commit
+> ^C
+> git commit -m "Initial commit"
+[master (root-commit) b809f64] Initial commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README
+> git add .
+> git commit -m "Add some lines"
+[master 50a9128] Add some lines
+ 1 file changed, 5 insertions(+)
+> gir switch -c costa
+
+Command 'gir' not found, did you mean:
+
+  command 'git' from deb git (1:2.25.1-1ubuntu3)
+  command 'gpr' from deb gpr (0.15deb-2build1)
+  command 'gie' from deb proj-bin (6.3.1-1)
+  command 'gip' from deb gip (1.7.0-1-4build1)
+  command 'gio' from deb libglib2.0-bin (2.64.3-1~ubuntu20.04.1)
+  command 'gid' from deb id-utils (4.6+git20120811-4ubuntu2)
+  command 'dir' from deb coreutils (8.30-3ubuntu2)
+
+Try: sudo apt install <deb name>
+
+> git switch -c costa
+Switched to a new branch 'costa'
+> git add .
+> git commit -m "Add costa comments"
+[costa 39c0ca4] Add costa comments
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+> git switch master
+Switched to branch 'master'
+> git add .
+> git commit -m "Add dhanuka"
+[master ac796ef] Add dhanuka
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+> git commit -am "Add first line Dhanuka"
+[master 373fd39] Add first line Dhanuka
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+> git log --oneline
+373fd39 (HEAD -> master) Add first line Dhanuka
+ac796ef Add dhanuka
+50a9128 Add some lines
+b809f64 Initial commit
+> git merge costa
+Auto-merging README
+CONFLICT (content): Merge conflict in README
+Automatic merge failed; fix conflicts and then commit the result.
+> git merge --abort
+> git merge costa
+Auto-merging README
+CONFLICT (content): Merge conflict in README
+Automatic merge failed; fix conflicts and then commit the result.
+> git merge --continue
+U	README
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+> git log --oneline --all --graph
+* 373fd39 (HEAD -> master) Add first line Dhanuka
+* ac796ef Add dhanuka
+| * 39c0ca4 (costa) Add costa comments
+|/  
+* 50a9128 Add some lines
+* b809f64 Initial commit
+> git log --oneline --all
+373fd39 (HEAD -> master) Add first line Dhanuka
+ac796ef Add dhanuka
+39c0ca4 (costa) Add costa comments
+50a9128 Add some lines
+b809f64 Initial commit
+> git log --merge
+commit 373fd39a9036d2d62a28258adcfa09dd9eea2ee4 (HEAD -> master)
+Author: Lucky Prabath <lucky.prabath94@gmail.com>
+Date:   Wed Dec 2 12:12:28 2020 +0530
+
+    Add first line Dhanuka
+
+commit ac796ef4d3ece5dc59002262f0e94f40cbde3dab
+Author: Lucky Prabath <lucky.prabath94@gmail.com>
+Date:   Wed Dec 2 12:11:06 2020 +0530
+
+    Add dhanuka
+
+commit 39c0ca4a968ae124fc660fd9b86601082a8a0416 (costa)
+Author: Lucky Prabath <lucky.prabath94@gmail.com>
+Date:   Wed Dec 2 12:10:24 2020 +0530
+
+    Add costa comments
+> git log --merges
+> git merge --continue
+U	README
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+> git branch
+  costa
+* master
+> git merge costa
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+> git add .
+> git merge --continue
+[master 927a868] Merge branch 'costa'
+> git log --oneline --all --graph
+*   927a868 (HEAD -> master) Merge branch 'costa'
+|\  
+| * 39c0ca4 (costa) Add costa comments
+* | 373fd39 Add first line Dhanuka
+* | ac796ef Add dhanuka
+|/  
+* 50a9128 Add some lines
+* b809f64 Initial commit
+> git log --merge
+fatal: --merge without MERGE_HEAD?
+> git log merges
+fatal: ambiguous argument 'merges': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> 
+

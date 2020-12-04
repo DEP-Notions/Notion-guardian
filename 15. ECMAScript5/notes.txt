@@ -1,0 +1,25 @@
+set license file in all source files in project at once
+=============================================================
+
+1. settings --> copyright --> copyright profiles
+2. add a license (ex:- MIT) and copy license content to description.
+3. apply &  --> copyright & select default project copyright --> apply
+4. plus mark --> set scope as "project files" --> apply and ok
+
+have to be done for every projects 
+
+
+set author for project files
+===============================================================
+1. settings --> file and code templates
+2. --> includes --> create file header as we want
+
+/**
+ * @author : Lucky Prabath <150472t@uom.lk>
+ * @since : ${DATE}
+**/
+
+3. --> files (interfaces classes files have the author)
+4. copy #parse line and paste to required files :- scss, css, js, typescript
+
+can be done for all projects at once.

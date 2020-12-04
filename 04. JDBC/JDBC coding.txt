@@ -1,0 +1,27 @@
+
+///////////////////////////////////////////////////////////////////////
+get data from database & add to a table
+-------------------------------------------
+
+Class.forName("com.mysql.jdbc.Driver");
+Connection connection = DriverManager.getConnection("
+	jdbc:mysql://127.0.0.1:3307/dep6", "root", "1234");
+String sql = "SELECT * FROM Customer";
+PreparedStatement stm = connection.prepareStatement(sql);
+ResultSet resultset = stm.executeQuery();
+
+make new Customer ArrayList
+
+while(resultSet.next()){
+	customerlist.add(
+		new Customer(
+			resultSet.getString(1),
+			resultSet.getString(2),
+			resultSet.getString(3),
+			resultSet.getString(4),	
+		)
+	);
+}
+
+mysql -h localhost -port 3306 (127.0.0.1)
+

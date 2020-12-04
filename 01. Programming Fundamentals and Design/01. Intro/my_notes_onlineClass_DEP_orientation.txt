@@ -1,0 +1,83 @@
+primitive data types
+
+https://meet.google.com/linkredirect?authuser=0&dest=https%3A%2F%2Fwww.geeksforgeeks.org%2Fdata-types-in-java%2F
+
+-----------------------------------------------
+/*char x = 100;
+        byte b;
+        b = (byte) x;
+        System.out.println(b);*/
+
+        char ch='A';  // A=65 a=97 B=66
+        System.out.println((int) ch);
+------------------------------------------------
+
+https://www.geeksforgeeks.org/type-conversion-java-examples/
+
+------------------------------------------------
+https://www.geeksforgeeks.org/java-if-statement-with-examples/
+-----------------------------------------------
+https://www.geeksforgeeks.org/java-if-else-if-ladder-with-examples/
+-------------------------------------
+java FX
+layerd architecture
+
+
+14/08/2020
+Methods
+ layerd and mvc architecture
+====================================================================
+parameter less methods
+
+import java.util.Scanner;
+public class GetSum{
+	public static void getSum(){
+		Scanner keyboard = new Scanner(System.in);
+		int a, b, total;
+
+		System.out.print("Enter numbers: ");
+		a = keyboard.nextInt();
+		b = keyboard.nextInt();
+		total = a+b;
+		System.out.print("Sum is: " + total);
+	}
+	public static void main(String[] args){
+		getSum();
+	}
+}
+----------------------------------------------------------------------
+anonymous objects
+
+printSum(new Scanner(System.in).nextInt(),new Scanner(System.in).nextInt());
+
+----------------------------------------------------------------------
+public static int reverse(int num){
+	String a = (String)num;
+	String b = "";
+	for (int i=0; i<a.length; i++){
+		b += a[a.length-1-i]
+	}
+	return (int)b;
+}
+
+----------------------------------------------------------------------
+public static char grade(double avg){
+	if ( marks < 25 ){
+            return 'F';
+        }
+        else if( marks >= 25 && marks < 45){
+            return 'C';
+        }
+        else if( marks >= 45 && marks < 50){
+            return 'D';
+        }
+        else if( marks >= 50 && marks < 60){
+            return 'B';
+        }
+        else if( marks >= 60 && marks < 80){
+            return 'A';
+        }
+        else if( marks >= 80){
+            return 'A+';
+        } 
+} 

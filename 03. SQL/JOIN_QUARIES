@@ -1,0 +1,46 @@
+
+
+DELETE FROM Customer WHERE true;
+
+
+CREATE TABLE Customer(
+    id INT PRIMARY KEY  AUTO_INCREMENT,
+    name VARCHAR(10),
+    address VARCHAR(20),
+    salary DOUBLE
+);
+
+CREATE TABLE `Order`(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    date DATE NOT NULL ,
+    customer_id INT NOT NULL ,
+    CONSTRAINT FOREIGN KEY (customer_id) REFERENCES Customer(id)
+);
+
+DELETE FROM Customer WHERE true;
+
+SELECT * FROM Customer CROSS JOIN `Order` O ;
+
+SELECT * FROM Customer, 'Order';
+
+ALTER TABLE Customer ADD COLUMN dob DATE NULL ;
+
+ALTER TABLE Customer MODIFY COLUMN dob VARCHAR(10);
+
+ALTER TABLE Customer CHANGE COLUMN dob salary DECIMAL;
+
+ALTER TABLE Customer DROP COLUMN salary;
+
+ALTER TABLE Customer ADD COLUMN title VARCHAR(10);
+ALTER TABLE Customer ADD CONSTRAINT UNIQUE (title);
+ALTER TABLE Customer DROP CONSTRAINT title;
+
+#explicit innter join
+SELECT * FROM Customer INNER JOIN 'Order' o on Customer.id = o.customer_id;
+
+#implicite inner join
+SELECT * FROM Customer C, `Order` O WHERE c.id = O.customer_id;
+
+SELECT * FROM Customer LEFT OUTER JOIN `Order` O on Customer.id = O.customer_id;
+
+

@@ -1,0 +1,81 @@
+project creation order
+
+===========================================================================================
+Hello jasper
+============================
+open jasper
+new project
+keep title and detail , delete remains
+add title "Hello Jasper Report"
+make font size and alignments
+save and copy file
+paste to intellij, package reports
+create lib folder in the project, add connectors
+
+create main form fxml and controller class, AppInitializer
+code app initializer to navigate main form
+code - helloReport button
+
+========================================================================================
+Bean Array Source Report
+=========================
+
+keep title, column header, detail
+create 3 new fields id, name, address
+drag and drop to detail bar
+save and paste to intellij
+
+Create Customer class in model pkg, names same as the jasper
+coding btn bean array data source - main form
+
+=======================================================================================
+Customer form - bean collection
+====================
+
+use same bean report model
+navigation code - btn bean collection on action
+coding
+	method initialize and load all customers
+	btn print on action
+	
+====================================================================================
+Report with DB connection
+===========================
+add 3 fields - id , name , address
+save and paste
+
+wrtire method in mainform
+
+=====================================================================================
+Report with parameters
+==========================
+create jasper model using parameters - id name address
+keep only title and detail bars
+test in preview
+add new adapter
+save and paste to intellij
+
+new fxml file - "Report with paras"
+id, name, address and btn report
+controller class
+
+report button
+
+---------------------------------------
+fill manager - 
+db connection and parameter - 
+
+jasper fields and para
+set report size- 
+
+
+
+
+	
+	
+	
+	
+	
+
+
+

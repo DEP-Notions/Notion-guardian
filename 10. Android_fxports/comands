@@ -1,0 +1,45 @@
+
+
+android - commands
+
+lsusb - get the list of divices connect
+adb devices - check the phone connect
+adb kill-server - disconnect t
+sudo apt-get install android-sdk-platform-tools-common 
+adb devices
+adb logcat  -  check when connection is done
+
+
+ 
+ //////////////////////////////////////////////////////////////////
+ down grade the gradle wrapper- in terminal
+ --------------------------------------------
+ gradle wrapper --gradle-version 5.6.4
+ 
+ if not run before copying text file
+ ------------------------------
+ ./gradlew build
+ 
+ run project
+ ------------
+ ./gradlew run
+ 
+ 
+ install to phone
+ -----------------------
+ ./gradlew androidInstall
+ 
+ 
+ debug
+ ----------
+ adb logcat
+ 
+ adb logcat > debug.log
+ 
+ adb logcat -v threadtime > abc.log
+ 
+ adb logcat -v threadtime -f "abc.log"
+ 
+ 
+ 
+ 

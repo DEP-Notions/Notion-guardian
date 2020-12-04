@@ -1,0 +1,4545 @@
+[Q1  =================Step I=====================
+~/GDSE47 :/> gedit Example.java &
+//------------------------------------Example.java-------------------------
+class Example{
+	public static void main(String args[]){
+		System.out.println("Hello Java");
+	}
+}
+//-------------------------------------------------------------------------
+
+=================Step II====================
+~/GDSE47 :/> javac Example.java
+
+=================Step III===================
+~/GDSE47 :/> java Example
+Hello Java
+
+/////////////////////////////////////////////////////////////////////////////////////////
+Q2 Case I
+=========
+~/GDSE47 :/> gedit Exampal.java
+//-----------------------------------Exampal.java----------------------
+
+//---------------------------------------------------------------------
+
+~/GDSE47 :/> javac Example.java
+javac: file not found: Example.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+
+
+//////////////////////////////////////////////////////////////////////////////////
+Q3 Case II
+==========
+~/GDSE47 :/> gedit Example.java &
+//-------------------------------------Example.java---------------------------
+class example{
+	public static void main(String args[]){
+		System.out.println("Hello Java");
+	}
+}
+//--------------------------------------------------------------------------
+
+~/GDSE47 :/> javac Example.java
+
+~/GDSE47 :/> java Example
+Error: Could not find or load main class Example
+
+
+~/GDSE47 :/> java example
+Hello Java
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q4 Case III
+===========
+~/GDSE47 :/> java Example.class
+Error: Could not find or load main class Example.class
+
+~/GDSE47 :/> java Example
+Hello Java
+
+/////////////////////////////////////////////////////////////////////////////////////////
+    9. Layout of a java source code file
+/////////////////////////////////////////////////////////////////////////////////////////
+Q5 Case I
+=========
+~/GDSE47 :/> gedit Example.java &
+//----------------------------------Example.java---------------------------
+class Example{
+	public static void main(String args[]){
+		System.out.println("Hello Java");
+		System.out.println("Hello Java");
+		System.out.println("Hello Java");
+		System.out.println("Hello Java");	
+		System.out.println("Hello Java");
+	}
+}
+//-------------------------------------------------------------------------
+~/GDSE47 :/> java Example
+Hello Java
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q6 Case II
+==========
+class Example{
+	public static void main(String args[]){
+		System.out.println("A");
+		System.out.println("B");
+		System.out.println("C");
+		System.out.println("D");
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q7 Case III
+===========
+class Example{
+	public static void main(String args[]){
+		System.out.println("A");
+		System.out.println("B");
+		System.out.println("C")
+		System.out.println("D");
+		System.out.println("E");
+	}
+}
+
+~/GDSE47 :/> javac Example.java
+Example.java:5: error: ';' expected
+		System.out.println("C")
+		                       ^
+1 error
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q8 Case IV
+==========
+class Example{
+	public void main(String args[]){
+		System.out.println("A");
+	}
+}
+
+Error: Main method is not static in class Example, please define the main method as:
+   public static void main(String[] args)
+
+Valid main method declarations (Compile and run)
+------------------------------
+	public static void main(String args[]){}
+	static public void main(String args[]){}
+	public static void main(String []args){}
+	public static void main(String danapala[]){}
+	public static void main(String...args){}
+
+//Invalid main method declarations (Compile, run time error)	
+----------------------------------
+	public static void main(String args){}
+	static public void Main(String args[]){}
+	public static void main(){}
+	static void main(String abc[]){}
+	public void main(String args[]){}
+	void main(String args[]){}
+
+Illegal Main method declarations (Compile error)
+================================================
+	public static void main(String []){}
+	public static main(String args[]){}
+	public void static main(String args[]){}
+	static void public main(String args[]){}
+	public static void (String args[]){}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    10. Java Literals (Simple data)
+//////////////////////////////////////////////////////////////////////////////////////////
+Q9 Java Integer Literals
+========================
+class Example{
+	public static void main(String args[]){
+		System.out.println(100);
+		System.out.println(11234567);
+		System.out.println(-1323);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q10 Floating-Point Literals
+===========================
+class Example{
+	public static void main(String args[]){
+		System.out.println(0.12345);
+		System.out.println(0.00123);
+		System.out.println(-0.12345);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q11 Boolean Literals
+====================
+class Example{
+	public static void main(String args[]){
+		System.out.println(true);
+		System.out.println(false);
+	}
+}z
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q12 String Literals
+====================
+class Example{
+	public static void main(String args[]){
+		System.out.println("Niroth");
+		System.out.println("12345");
+		System.out.println("1");
+		System.out.println("A");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q13 Character Literals
+======================
+class Example{
+	public static void main(String args[]){
+		System.out.println('A');
+		System.out.println('5');
+	}
+}
+------------------------
+print only one letter
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    11. Java Commments
+//////////////////////////////////////////////////////////////////////////////////////////
+Q14 
+class Example{
+	public static void main(String args[]){
+		System.out.println("A");
+		//System.out.println("B");
+		System.out.println("C");
+		//System.out.println("D");
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q15 Line Comments
+=================
+class Example{
+	public static void main(String args[]){
+		System.out.println("A"); //print 'A' 
+		System.out.println("B"); //prints 'B'
+		System.out.println("C"); //dsf sdaf asd 
+		System.out.println("D"); //fgvb g sdfg dfgsdfg sdf
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q16 Block Comments
+==================
+class Example{
+	public static void main(String args[]){
+		System.out.println("A"); 
+		/*System.out.println("B"); 
+		System.out.println("C"); 
+		System.out.println("D"); */
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q17 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.println(100); //This is an integer literal
+		System.out.println(1.00223); //floating point literal 
+		System.out.println(true);	 //Boolean loteral
+		System.out.println("D");	//String literals
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q18 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.println("abc); //Error
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q19 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.println('A');	
+		System.out.println('7');	
+		System.out.println('AB'); //Illegal	 
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q20 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.println("ABC");	
+		System.out.println("abc");	
+		System.out.println('abc');	//Illegal
+	} 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q21 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.println(100);	
+		System.out.println(1.23);	
+		System.out.println(1.234.40);	 //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q22 Exercise (Boolean Literals)
+============ ==================
+class Example{
+	public static void main(String args[]){
+		System.out.println(true);	//true, false are keywords
+		System.out.println(false);	
+		System.out.println(True);	 //Illegal
+		System.out.println(falsE);	//Illegal	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+    12. System.out.println(data) vs System.out.print(data)
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q23 
+class Example{
+	public static void main(String args[]){
+		System.out.print("A");
+		System.out.print("B");
+		System.out.print("C");
+		System.out.print("D");
+		System.out.print("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q24
+class Example{
+	public static void main(String args[]){
+		System.out.print("A");
+		System.out.println("B");
+		System.out.print("C");
+		System.out.print("D");
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q25
+class Example{
+	public static void main(String args[]){
+		System.out.print("Hello IJSE"); 
+		System.out.println("@"); 
+		System.out.print("CMJD"); 
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q26 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.print("A");
+		System.out.print("B");
+		System.out.println(); //Print a line
+		System.out.print("D");
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q27 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.print("A");
+		System.out.print("B");
+		System.out.print(); //Illegal
+		System.out.print("D");
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    13. Computer Variables
+//////////////////////////////////////////////////////////////////////////////////////////
+Q28
+class Example{
+	public static void main(String args[]){
+		int x; //Create a Varaible (Variable declaration)
+		x=100; //100 assign into x (Variable Initialization)
+		System.out.println(x); //prints value of x
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q29 Case I
+==========
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=100;
+		System.out.println('x');
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q30 Case II
+===========
+class Example{
+	public static void main(String args[]){
+		int x;
+		System.out.println(x);
+	}
+}
+Example.java:5: error: variable x might not have been initialized
+		System.out.println(x);
+		                   ^
+1 error
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q31 Case III
+===========
+class Example{
+	public static void main(String args[]){
+		int x;
+		System.out.println(x);
+		x=100;
+	}
+}
+Example.java:4: error: variable x might not have been initialized
+		System.out.println(x);
+		                   ^
+1 error
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q32 Case IV
+===========
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=100;
+		x=200;		
+		System.out.println(x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q33 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=100;
+		System.out.println(x);
+		x=200;		
+		System.out.println(x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q34 Case V
+==========
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=100;
+		System.out.println(x);
+		int y; 
+		y=200;
+		System.out.println(y);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q35 Case VI
+===========
+class Example{
+	public static void main(String args[]){
+		int x,y,z; //Legal
+		x=100;
+		y=200;
+		System.out.println(x);
+		System.out.println(y);
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q36 Case VII
+============
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		int y=200;
+		System.out.println(x);
+		System.out.println(y);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q37 Case VIII
+=============
+class Example{
+	public static void main(String args[]){
+		int x=100, y, z=100;
+		System.out.println(x);
+		System.out.println(z);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q38 Case IX
+===========
+class Example{
+	public static void main(String args[]){
+		int x,y,z;
+		x=y=z=100;
+		System.out.println(x);
+		System.out.println(y);
+		System.out.println(z);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q39 Case X
+==========
+class Example{
+	public static void main(String args[]){
+		int x=y=z=100; //Illegal
+		System.out.println(x);
+		System.out.println(y);
+		System.out.println(z);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q40 Case XI
+===========
+class Example{
+	public static void main(String args[]){
+		int x=100,y=200,z=300;
+		System.out.println(x);
+		System.out.println(y);
+		System.out.println(z);
+		int x=500;	
+		System.out.println(x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q41 Case XII
+============
+class Example{
+	public static void main(String args[]){
+		int r=100;
+		int R=200;
+		System.out.println(r);
+		System.out.println(R);
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q42 Exercise
+===========
+class Example{
+	public static void main(String args[]){
+		int a=10,b=20;
+		System.out.println('a');	
+		System.out.println(a);	
+		System.out.println("a");
+		System.out.println('b');	
+		System.out.println(b);	
+		System.out.println("b");		
+		System.out.println('c');	
+		System.out.println(c);
+		System.out.println("c");	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q43 Case XIII
+=============
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		int y=200;
+		System.out.println(x);
+		System.out.println(y);
+		
+		x=y;
+		System.out.println(x);
+		System.out.println(y);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q44 Case XIV
+============
+class Example{
+	public static void main(String args[]){
+		int x=20, y=10,z;
+		z=x+y;
+		System.out.println(z);
+		z=x-y;
+		System.out.println(z);
+		z=x*y;
+		System.out.println(z);
+		z=x/y;
+		System.out.println(z);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+   14. String Concatenation vs Arithmetic addition
+//////////////////////////////////////////////////////////////////////////////////////////
+Q45 String Concatenation
+========================
+class Example{
+	public static void main(String args[]){
+		System.out.println("10"+"20");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q46 Arithmetic Addition
+=======================
+class Example{
+	public static void main(String args[]){
+		System.out.println(10+20);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q47
+class Example{
+	public static void main(String args[]){
+		System.out.println("10"+20); //String Concat =>convert 20 into string ("20")
+		System.out.println(10+"20"); //String Concat =>convert 10 into string ("10")
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q48 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.println("10+20+30"); //10+20+30
+		System.out.println("10+20"+"30"); //10+2030
+		System.out.println("10"+"20+30"); //1020+30
+		System.out.println("10"+"20"+"30"); //102030
+		System.out.println(	10+"20"+"30");  //102030
+		System.out.println("10"+20+"30"); //102030
+		System.out.println("10"+"20"+30); //102030
+		System.out.println("10"+20+30); //102030
+		System.out.println(10+20+"30"); //3030
+		System.out.println(10+20+30); //60
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q49 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		int x=10,y=20;
+		System.out.println("x+y");	//x+y
+		System.out.println("x"+"y"); //xy
+		System.out.println(x+"y"); //10y
+		System.out.println("x"+y); //x20
+		System.out.println(x+y); //30
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q50 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		int x=10,y=20,z=30;
+		System.out.println("x+y+z"); //x+y+z
+		System.out.println("x+y"+"z"); //x+yz
+		System.out.println("x"+"y+z"); //xy+z
+		System.out.println("x"+"y"+"z"); //xyz
+		System.out.println("x+y"+z); //x+y30
+		System.out.println(x+"y+z"); //10y+z
+		System.out.println(x+"y"+"z");//10yz
+		System.out.println("x"+y+"z"); //x20z
+		System.out.println("x"+"y"+z); //xy30
+		System.out.println(x+y+"z");//30z
+		System.out.println("x"+y+z);//x2030
+		System.out.println(x+y+z);//60
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q51 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		int x=10;
+		System.out.println();  //Value of x is 10
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q52 From Q51
+============
+class Example{
+	public static void main(String args[]){
+		int x=10;
+		System.out.println("Value of x is : "+x);  //Value of x is 10
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q53 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		int x=10,y=20;
+		System.out.println(); //10 20
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q54 From Q53
+============
+class Example{
+	public static void main(String args[]){
+		int x=10,y=20;
+		System.out.println(x+" "+y); //10 20
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q55 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		int year=2018;
+		int month=2;
+		int day=23;
+		System.out.println(); //2018-2-23
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q56 From Q55
+============
+class Example{
+	public static void main(String args[]){
+		int year=2018;
+		int month=2;
+		int day=23;
+		System.out.println(year+"-"+month+"-"+day); //2018-2-23
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q57 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		int x,y,z;
+		x=100;
+		y=200;
+		z=x+y;
+		System.out.println(); //100 + 200 = 300
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q58 From Q57
+============
+class Example{
+	public static void main(String args[]){
+		int x,y,z;
+		x=100;
+		y=200;
+		z=x+y;
+		System.out.println(x+" + "+y+" = "+z); //100 + 200 = 300
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    15 Kayboard Input
+//////////////////////////////////////////////////////////////////////////////////////////
+Q59
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		int x,y,z;
+		x=input.nextInt();
+		y=input.nextInt();
+		z=x+y;
+		System.out.println(x+" + "+y+" = "+z); //100 + 200 = 300
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q60
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		int x,y,z;
+		System.out.println("Input number 1 : ");
+		x=input.nextInt();
+		System.out.println("Input number 2 : ");
+		y=input.nextInt();
+		z=x+y;
+		System.out.println(x+" + "+y+" = "+z); //100 + 200 = 300
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q61
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		int x,y,z;
+		System.out.print("Input number 1 : ");
+		x=input.nextInt();
+		System.out.print("Input number 2 : ");
+		y=input.nextInt();
+		z=x+y;
+		System.out.println(x+" + "+y+" = "+z); //100 + 200 = 300
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q62 Exercise
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input Your age : ");
+		int age=input.nextInt();
+		System.out.println("Your age is : "+age);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q63 Exercise
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input Your age : ");
+		int age=input.nextInt();
+		System.out.println("Your current age is : "+age);
+		//
+					
+		//
+		System.out.println("Your age after 10 year is : "+age);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q64 From Q63
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input Your age : ");
+		int age=input.nextInt();
+		System.out.println("Your current age is : "+age);
+		//
+		int x;
+		x=age+10;
+		age=x;
+		//
+		System.out.println("Your age after 10 year is : "+age);
+	}
+}
+ 
+//////////////////////////////////////////////////////////////////////////////////////////
+Q65 From Q64
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input Your age : ");
+		int age=input.nextInt();
+		System.out.println("Your current age is : "+age);
+		//
+		age=age+10;
+		//
+		System.out.println("Your age after 10 year is : "+age);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q66 Exercise
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		int x,y;
+		System.out.print("Input number 1 : ");
+		x=input.nextInt();
+		System.out.print("Input number 2 : ");
+		y=input.nextInt();
+		System.out.println(x+" "+y);
+		//
+		//
+		//
+		System.out.println(x+" "+y);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q67 From Q66
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		int x,y;
+		System.out.print("Input number 1 : ");
+		x=input.nextInt();
+		System.out.print("Input number 2 : ");
+		y=input.nextInt();
+		System.out.println(x+" "+y);
+		//
+		int t=x;
+		x=y;
+		y=t;
+		//
+		System.out.println(x+" "+y);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q68 From Q67 (Without another variable)
+=======================================
+
+//////////////////////////////////////////////////////////////////////////////////////////
+   16. Primitive Data types in Java   
+    byte, short, int, long, float, double, char, boolean 
+//////////////////////////////////////////////////////////////////////////////////////////
+Q69
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=1.5;
+		System.out.println(x);
+	}
+}
+
+Example.java:4: error: incompatible types: possible lossy conversion from double to int
+		x=1.5;
+		  ^
+1 error
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q70 From Q69
+============
+class Example{
+	public static void main(String args[]){
+		double x; //int x;
+		x=1.5;
+		System.out.println(x); //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q71 'byte'
+==========
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		byte b;
+		b=100;
+		System.out.println(b);
+		
+		b=-123;
+		System.out.println(b);
+
+		b=127; //Max of byte
+		System.out.println("Max : "+b);		
+		
+		b=-128;
+		System.out.println("Min : "+b);		
+	} 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q72 Exercise
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		byte b;
+		b=127; //max of byte
+		System.out.println("Max of byte : "+b);
+		
+		b=128; //Compile Error
+
+		b=-128; //min of byte
+		System.out.println("Min of byte : "+b);
+
+		b=-129; //Compile Error
+	} 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q73 Short
+=========
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		short s;
+		s=32767; //Max of short
+		System.out.println("Max of short : "+s);
+		
+		s=32768; //Error
+
+		s=-32768; //min of short
+		System.out.println("Min of short : "+s);
+
+		s=-32769; //Compile Error
+	} 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q74 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		byte b;
+		b=Byte.MAX_VALUE;
+		System.out.println("Max of byte : "+b);
+
+		b=Byte.MIN_VALUE;
+		System.out.println("Min of byte : "+b);
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q75 Short
+==========
+class Example{
+	public static void main(String args[]){
+		short s;
+		s=Short.MAX_VALUE;
+		System.out.println("Max of short : "+s);
+
+		s=Short.MIN_VALUE;
+		System.out.println("Min of short : "+s);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q76 int
+=======
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=Integer.MAX_VALUE;
+		System.out.println("Max of int : "+x);
+
+		x=Integer.MIN_VALUE;
+		System.out.println("Min of int : "+x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q77 long
+========
+class Example{
+	public static void main(String args[]){
+		long y;
+		y=Long.MAX_VALUE;
+		System.out.println("Max of long : "+y);
+
+		y=Long.MIN_VALUE;
+		System.out.println("Min of long : "+y);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q78 float
+=========
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		float f;
+		f=100;
+		System.out.println("f : "+f); //100
+
+		//f=1.5; //Illegal
+		f=1.5f; //Legal
+		System.out.println("f : "+f); //1.5
+
+	} 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q79 Max, min of float
+=====================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		float f;
+		f=Float.MAX_VALUE;
+		System.out.println("max of float : "+f); //
+
+		f=Float.MIN_VALUE;
+		System.out.println("min of float : "+f); //
+	} 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q80 type double
+===============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		double d;
+		d=1.2333; 
+		System.out.println("double d : "+d);
+
+		d=-0.000122;
+		System.out.println("double d : "+d);
+
+	} 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q81 max, min of double
+======================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		double d;
+		d=Double.MAX_VALUE;
+		System.out.println("max of double : "+d); //
+
+		d=Double.MIN_VALUE;
+		System.out.println("min of double : "+d); //
+	} 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q82 float vs double
+===================
+class Example{
+	public static void main(String args[]){
+		double d;
+		float f;
+		
+		f=0.123456789123456789f;
+		d=0.123456789123456789 ; //d or D
+		
+		System.out.println("float  : "+f);
+		System.out.println("double : "+d);
+
+		f=100.123456789123456789f;
+		d=100.123456789123456789 ; //d or D
+		
+		System.out.println("float  : "+f);
+		System.out.println("double : "+d);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q83 Char, boolean
+================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		char ch;
+		ch='A';
+		System.out.println("ch : "+ch); //print A
+
+		boolean b;
+		b=10>9;
+		System.out.println("b : "+b); //prints true
+	} 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q84 Keyboard Inputs
+===================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		byte b;
+		b=input.nextByte();
+		
+		short s;
+		s=input.nextShort();
+
+		int x;
+		x=input.nextInt();
+		
+		long y;
+		y=input.nextLong();
+		
+		float f;
+		f=input.nextFloat();
+
+		double d;
+		d=input.nextDouble();
+	} 
+}
+
+///////////////////////////////////////////////////////////////////////////////
+	17. Data Representation in Computer Memory
+//////////////////////////////////////////////////////////////////////////////////////////
+Q85 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		double d=0.1223;
+		System.out.println("d : "+d);
+
+		d=0.0000002323023; //
+		System.out.println("d : "+d);
+
+		d=121221121;
+		System.out.println("d : "+d);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q86 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		char ch='A';
+		System.out.println("ch : "+ch);
+
+ 		ch=66; //ASCII B
+		System.out.println("ch : "+ch);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q87 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.println("A"+"B");
+		System.out.println('A'+"B");
+		System.out.println('A'+'B');
+		System.out.println('A'+100);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q88 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		char ch='A';
+		int x=65;
+		System.out.println(x+ch);
+		System.out.println(ch+1);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q89 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.println(1+1);
+		System.out.println('1'+'1');
+		System.out.println('1'+1);
+		System.out.println("1"+1);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q90 Boolean 
+============
+class Example{
+	public static void main(String args[]){
+		boolean b=10>9;
+		System.out.println(b); //true
+		b=true;
+		System.out.println(b); //true
+		b=false;
+		System.out.println(b); //false
+		System.out.println(b+"1"); //false1
+		//System.out.println(b+1); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+       18. Java Reserved words, Keywords and Java Identifiers 
+//////////////////////////////////////////////////////////////////////////////////////////
+Q91 Exercise
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		//int customer total; //Illegal
+		int customerTotal;  //Legal
+		int customer_total; //Legal	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q92 Exercise
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		int age, order_Id, order$Id;
+		int a@b; //Illegal
+		int abc-xyz; //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q93 Exercise
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		int x, X;  //Legal
+		int age, Age, aGe, agE; //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q94 Exercise
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		int for; //Illegal
+		int byte; //Illegal
+		
+		int For; //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q95 exercise
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		int x1,x2,count2; //Legal
+		int 1x, 2count; //Illegal
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+   19. Java Literals
+//////////////////////////////////////////////////////////////////////////////////////////
+Q96 Integer Literals
+====================
+class Example{
+	public static void main(String args[]){
+		System.out.println(100); //prints 100
+		System.out.println(0144);//prints 100
+		System.out.println(0B1100100);//prints 100
+		System.out.println(0x64);//prints 100
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q97 Integer Literals
+===================
+ class Example{
+	public static void main(String args[]){
+		int x;
+		x=100;
+		System.out.println(x);
+
+		x=0b1100100;
+		System.out.println(x);
+
+		x=0144;
+		System.out.println(x);
+		
+		x=0x64;
+		System.out.println(x);
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q98 Integer Literals
+class Example{
+	public static void main(String args[]){
+		System.out.println(26); //dec
+		System.out.println(0x110); //Hex
+		System.out.println(0x1A); //Hex
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q99 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=0149;	//Illegal ?
+		System.out.println(x);
+
+		x=0b121010;	//Illegal ?
+		System.out.println(x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q100 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=0abc;	//Illegal
+		System.out.println(x);
+
+		x=0x10abfg; //Illegal
+		System.out.println(x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q101 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=2016_11_08;  //since JDK1.7
+		System.out.println(x);
+
+		x=0b11_00_1_00; //since JDK1.7
+		System.out.println(x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q102 Exercise
+============
+class Example{
+	public static void main(String args[]){
+		System.out.println(10000);
+		System.out.println(100000000000); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q103
+class Example{
+	public static void main(String args[]){
+		System.out.println(2147483647); //Legal ->max of int(32bits)
+		System.out.println(-2147483648); //Legal->min of int
+
+		System.out.println(2147483648); //Illegal
+		System.out.println(-2147483649); //Illegal
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q104
+class Example{
+	public static void main(String args[]){
+		System.out.println(2147483647); //Legal
+		System.out.println(-2147483648); //Legal
+
+		System.out.println(2147483648L); //Legal ->L or l long
+		System.out.println(-2147483649L); //Legal
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q105
+class Example{
+	public static void main(String args[]){
+		long x;
+		x=2147483647; //Legal -> max of int
+		System.out.println(x);
+
+		//x=2147483648; //Illegal -> max  of int +1
+		x=2147483648L; //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q106 Floating-point Literals
+============================
+class Example{
+	public static void main(String args[]){
+		System.out.println(1213.12122);
+		System.out.println(0.00000122);
+		System.out.println(1.22E-6);
+		System.out.println(-0.00000122);
+		System.out.println(1.22E6);
+		System.out.println(-1.22E-6);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q107 float(32bits) vs double (64bits)
+====================================
+class Example{
+	public static void main(String args[]){
+		System.out.println(1213.12122f); //32bits
+		System.out.println(1213.12122); //64bits
+
+		float f;
+		f=1213.12122f; //Legal
+		
+		f=1213.12122; //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q108 Boolean Literals
+=====================
+class Example{
+	public static void main(String args[]){
+		System.out.println(true); 
+		System.out.println(false);
+		boolean b;
+		b=10>0;
+		System.out.println(b);//true
+		
+		b=false;
+		System.out.println(b);//false
+		System.out.println(True);  //Illegal
+		System.out.println(falSe); //Illegal
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q109 Character Literals
+=======================
+class Example{
+	public static void main(String args[]){
+		System.out.println('A'); 
+		char ch='A';
+		System.out.println(ch); 
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q110 Character Listerals
+========================
+class Example{
+	public static void main(String args[]){
+		System.out.println('A'); 
+		System.out.println('2'); 
+		System.out.println(5+5); 
+		System.out.println('5'+5); 
+		System.out.println('5'+'5'); 
+		System.out.println("5"+5); 
+		System.out.println("5"+'5'); 
+	}
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q111  Escape Characters
+======================
+Escape Sequence	Description
+---------------------------
+\ddd	Octal character (ddd)
+\uxxxx	Hexadecimal Unicode character (xxxx)
+\'		Single quote
+\"		Double quote
+\\		Backslash
+\r		Carriage return
+\n		New line (also known as line feed)
+\f		Form feed
+\t		Ta b
+\b		Backspace
+
+class Example{
+	public static void main(String args[]){
+		char ch='\b';
+		System.out.println("AB"+ch+"CD"); //prints ACD
+
+		ch='\t';
+		System.out.println("AB"+ch+"CD"); //prints AB	CD
+
+		ch='\n';
+		System.out.println("AB"+ch+"CD"); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q112 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		System.out.println("AB\bCD"); //ACD
+		System.out.println("AB\tCD"); //
+		System.out.println("AB\nCD"); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q113
+class Example{
+	public static void main(String args[]){
+		
+		System.out.println("AB\rCD"); //Legal
+		System.out.println("AB\fCD"); //Legal
+		System.out.println("AB\nCD"); //Legal
+		System.out.println("AB\tCD"); //Legal
+		System.out.println("AB\bCD"); //Legal
+		System.out.println("AB\gCD"); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q114
+class Example{
+	public static void main(String args[]){
+		char ch='\''; //
+		System.out.println("AB"+ch+"CD"); 
+
+		ch='\"'; //
+		System.out.println("AB"+ch+"CD"); 
+
+		ch='\\'; //
+		System.out.println("AB"+ch+"CD"); 
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q115
+class Example{
+	public static void main(String args[]){
+		char ch;
+		ch='\t'; //Legal
+		ch='\w'; //Illegal
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q116
+class Example{
+	public static void main(String args[]){
+		System.out.println("C:\Windows"); //C:\Windows //Illegal
+		System.out.println("C:\\Windows"); //Legal 
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q117 Unicode Character System
+=============================
+class Example{
+	public static void main(String args[]){
+		System.out.println('A'); //prints A
+		System.out.println(65); //prints 65
+
+		System.out.println('\u0041'); //prints A
+		//Unicode Character System
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q118
+class Ex\u0061mple{
+	public static void main(String args[]){
+		char \u0061='\u0041';
+		System.out.println(a); //prints A
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    20. Primitive Conversion and Casting
+//////////////////////////////////////////////////////////////////////////////////////////
+Q119 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		byte b=100;
+		short s;
+		s=b;
+		System.out.println(s+" "+b);
+		
+		byte b1;
+		b=s; //?
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q120 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		byte b=10;
+		short s=12;
+		int x=10;
+		long y=10;
+		float f=1.5f;
+		double d=12.22;
+		
+		s=b;
+		x=s;
+		y=x;
+		f=y;
+		d=f;
+		
+		b=s;
+		s=x;
+		x=y;
+		y=f;
+		f=d;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q121 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		double d;
+		d=x; 
+		System.out.println(x+" "+d); //100 100.0
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q122 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		char ch='A';
+		int x;
+		x=ch;
+		System.out.println(ch+" "+x);
+		
+		double d='a';
+		System.out.println(d); //97.0
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q123 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		int x=1;
+		boolean b;
+		b=x; //Illegal
+
+		b=true;
+		x=b; //Illegal
+		System.out.println();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q124 Primitive Casting
+======================
+class Example{
+	public static void main(String args[]){
+		byte b;
+		short s=10;
+		//b=s; //Illegal
+		b=(byte)s;
+		System.out.println(b+" "+s);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q125 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		byte b=100;
+		short s;
+		s=b; 	//Legal Automatic Conversion
+
+		int x;
+		x=b;	//Legal Automatic Conversion
+
+		long y;
+		y=b;	//Legal Automatic Conversion
+
+		float f;
+		f=b;	//Legal Automatic Conversion	
+
+		double d;
+		d=b;	//Legal Automatic Conversion
+
+		char ch;
+		//ch=b;	//Illegal ->Need to cast
+		ch=(char)b; //Legal	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q126 Narrow Casting
+===================
+class Example{
+	public static void main(String args[]){
+		double avg=12.34;
+		int x;
+		x=(int)avg;
+		System.out.println(avg+" : "+x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q127 Wider Casting
+==================
+class Example{
+	public static void main(String args[]){
+		int total=987; //total marks;
+		int n=10; //no of students	
+		
+		double avg;
+		avg=total/n;
+		System.out.println(avg); //98.0
+
+		avg=(double)total/n; //Wider casting
+		System.out.println(avg); //98.7
+
+		avg=total/(double)n; //Wider casting
+		System.out.println(avg); //98.7
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q128 Wider Conversion
+======================
+class Example{
+	public static void main(String args[]){
+		char ch='A';
+		double d;
+		d=ch; //Wider Conversion
+		System.out.println(d+" : "+ch); //65.0 : A
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q129 Narrow Conversion
+======================
+class Example{
+	public static void main(String args[]){
+		byte b=10;
+		long x=120000;
+		
+		//b=b+x; //Illegal ->Need to cast
+		b+=x; //Legal -> Narrow Conversion (No need to cast)
+		System.out.println(x+" : "+b);
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q130  Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		byte b=65;
+		short s=66;
+		char ch;
+		ch=b; //Illegal
+		ch=s; //Illegal
+		ch=66; //Legal
+		System.out.println(ch); //prints B
+	}
+} 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q131 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		double d=97.2323;
+		int x;
+		x=(int)d;
+		System.out.println(x+" : "+d); //97 : 97.2323
+
+		char ch;
+		ch=(char)d;
+		System.out.println(ch+" : "+d); //a : 97.2323
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q132 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		short s=100;
+		byte b;
+		b=(byte)s;
+		System.out.println(b+" : "+s); 
+
+		s=127;
+		b=(byte)s;
+		System.out.println(b+" : "+s);  //127 127
+
+		s=128;
+		b=(byte)s;
+		System.out.println(b+" : "+s);  //-128 127
+
+		s=255;
+		b=(byte)s;
+		System.out.println(b+" : "+s);  //-1 127
+
+		s=256;
+		b=(byte)s;
+		System.out.println(b+" : "+s);  //0 127
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q133
+class Example{
+	public static void main(String args[]){
+		int x=Integer.MAX_VALUE;
+		byte b;
+		b=(byte)x;
+		System.out.println(b+" "+x);
+	}
+}	
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q134 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		byte b1=1,b2=2;
+		byte b3;
+		b3=b1+b2; //Illegal
+		b1=b1+10; //Illegal 
+		System.out.println();
+		
+		short s;
+		s=b1+b2; //Illegal
+		s1=b1+10; //Illegal
+		
+		int x;
+		x=b1+b2; //Legal
+		x=b1+10; //Legal
+	}
+}		
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q135 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		byte b=10;
+		long x=120000;
+		
+		//Insert Code here
+		System.out.println(x+" : "+b);
+
+	}
+}
+//A.	b=x;
+//B.	x=b;
+//C.	x=x+b;
+//D.	b=b+x;
+//E.	b=(byte)b+x;
+//F.	b=(byte)(b+x);
+//G.	b=b+(byte)x;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q136 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		System.out.println(5/2);
+		System.out.println(5/2.0);
+		System.out.println(5.0/2);
+		System.out.println(5.0/2.0);
+		System.out.println((double)5/2);
+		System.out.println(5/(double)2);
+		System.out.println((double)5/(double)2);
+		System.out.println((double)(5/2));
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q137 
+class Example{
+	public static void main(String args[]){
+		double d=255.1234;
+		int x;
+		x=(int)d;
+		System.out.println(x+" "+d);
+
+		b=(byte)d;
+		System.out.println(b+" "+d);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q138
+class Example{
+	public static void main(String args[]){
+		double d=65.1234;
+		char ch;
+		ch=(char)d;
+		System.out.println(ch+" "+d); //prints A
+
+		d=0.00971234E4;
+		ch=(char)d;
+		System.out.println(ch+" "+d); //prints a
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    21. Arithmetic Operators in Java
+    +, -, /, *, %, ++, --
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q139
+class Example{.
+	public static void main(String args[]){
+		int x=600,y=200,z;
+		z=x+y;
+		System.out.println(x+" + "+y+" = "+z);
+
+		z=x-y;
+		System.out.println(x+" - "+y+" = "+z);
+
+		z=x*y;
+		System.out.println(x+" * "+y+" = "+z);
+
+		z=x/y;
+		System.out.println(x+" / "+y+" = "+z);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q140 Operator "%"
+=================
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=19/5;
+		System.out.println("19 / 5 : "+x);
+		
+		x=19 % 5;
+		System.out.println("19 % 5 : "+x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q141 Exercise
+==============
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=10/13;
+		System.out.println("10 / 13 : "+x);
+		
+		x=10 % 13;
+		System.out.println("10 / 13 : "+x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q142
+class Example{
+	public static void main(String args[]){
+		double d;
+		d=4.7 % 1.1;
+		System.out.println("4.7 % 1.1 : "+d);
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q143 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input emp salary : ");
+		int salary=input.nextInt();
+		
+		int r5000, r2000,r1000,r500,r200,r100,r50,r20,r10,r5,r2,r1;
+		//Find minimum no of notes and coins
+
+		//Prints the result
+		System.out.println("R5000 : "+r5000);
+		System.out.println("R2000 : "+r2000);
+		System.out.println("R1000 : "+r1000);
+		System.out.println("R500  : "+r500);
+		System.out.println("R200  : "+r200);
+		System.out.println("R100  : "+r100);
+		System.out.println("R50   : "+r50);
+		System.out.println("R20   : "+r20);
+		System.out.println("R10   : "+r10);
+		System.out.println("R5    : "+r5);
+		System.out.println("R2    : "+r2);
+		System.out.println("R1    : "+r1);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q144 Operator "++", "--"
+========================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		System.out.println(x); //100
+		x++;
+		System.out.println(x); //101
+		++x;
+		System.out.println(x); //102
+		
+		x--;
+		System.out.println(x);//101
+		--x;
+		System.out.println(x);//100
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q145 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		double d=100.12;
+		System.out.println(d);	//100.12
+		
+		d++;
+		System.out.println(d);	//101.12
+		
+		++d;
+		System.out.println(d);	//102.12
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q146 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		char ch='A';
+		System.out.println(ch);	//A
+		
+		ch++;
+		System.out.println(ch);	//B
+
+		++ch;
+		System.out.println(ch);	//C
+
+		ch--;
+		System.out.println(ch);	//B
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q147 x++ vs ++x (Post fix vs Pre-fix)
+=====================================
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		int y;
+		y=x++;
+		System.out.println(x+" "+y); //101 100
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q148 x++ vs ++x (Post fix vs Pre-fix)
+=====================================
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		int y;
+		y=++x; //Pre condition (Pre-fix)
+		System.out.println(x+" "+y); //101 101
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q149 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		int x;
+
+		x=100;
+		x=x++;
+		System.out.println(x); //100
+
+		x=100;
+		x=++x;
+		System.out.println(x);//101
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q150 Exercise
+==============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		System.out.println(x);//100
+		System.out.println(x++);
+		System.out.println(++x);
+		System.out.println(x++);
+		System.out.println(++x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q151 Exercise
+=============
+class Example{
+	public static void main(String args[]){
+		int x=10,y=20,z;
+		z=x++ + ++y;
+		System.out.println(x+" "+y+" "+z);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    22. Java Flow Control "if", "if/else", "if/else if", "nested if"
+        (Control Statements)
+//////////////////////////////////////////////////////////////////////////////////////////
+Q152
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input a number : ");
+		int x=input.nextInt();
+		System.out.println("A");
+		System.out.println("B");
+		System.out.println("C");
+		System.out.println("D");
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q153
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input a number : ");
+		int x=input.nextInt();
+		System.out.println("A");
+		System.out.println("B");
+		if(x>100) System.out.println("C");
+		System.out.println("D");
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q154 
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input a number : ");
+		int x=input.nextInt();
+		System.out.println("A");
+		System.out.println("B");
+		if(x>100)
+			System.out.println("C");
+		System.out.println("D");
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q155 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input a number : ");
+		int x=input.nextInt();
+		System.out.println("A");
+		System.out.println("B");
+		if(x>100); //--->";"
+			System.out.println("C");
+		System.out.println("D");
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q156 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input a number : ");
+		int x=input.nextInt();
+		System.out.println("A");
+		System.out.println("B");
+		if(x>100)
+			System.out.println("C");
+			System.out.println("D");
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q157
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input a number : ");
+		int x=input.nextInt();
+		System.out.println("A");
+		System.out.println("B");
+		if(x>100){ //code block
+			System.out.println("C");
+			System.out.println("D");
+		}
+		System.out.println("E");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q158 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input number 1 : ");
+		int a=input.nextInt();
+		System.out.print("Input number 2 : ");
+		int b=input.nextInt();		
+		System.out.print("Input number 3 : ");
+		int c=input.nextInt();		
+		System.out.print("Input number 4 : ");
+		int d=input.nextInt();		
+		
+		//find the max
+		int max;
+		//Insert code here
+		//
+		//
+		
+		System.out.println("max : "+max);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q159 From Q158
+==============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input number 1 : ");
+		int a=input.nextInt();
+		System.out.print("Input number 2 : ");
+		int b=input.nextInt();		
+		System.out.print("Input number 3 : ");
+		int c=input.nextInt();		
+		System.out.print("Input number 4 : ");
+		int d=input.nextInt();		
+		
+		//find the max
+		int max;
+		max=a;
+		if(b>max){
+			max=b;	
+		}
+		if(c>max){
+			max=c;		
+		}
+		if(d>max){
+			max=d;	
+		}
+		
+		System.out.println("max : "+max);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q160 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input marks average : ");
+		double avg=input.nextInt();
+		System.out.println("P");
+		System.out.println("F");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q161 From Q160
+==============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input marks average : ");
+		double avg=input.nextInt();
+		if(avg>49){
+			System.out.println("P");
+		}
+		if(avg<50){
+				System.out.println("F");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q162 From Q161 Using "if/else"
+==============================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input marks average : ");
+		double avg=input.nextInt();
+		if(avg>49){
+			System.out.println("P");
+		}else{
+			System.out.println("F");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q163 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input marks average : ");
+		double avg=input.nextDouble();
+		if(avg>=75){
+			System.out.println("Grade A");
+		}
+		if(avg>=65){
+			System.out.println("Grade B");
+		}		
+		if(avg>=45){
+			System.out.println("Grade C");
+		}		
+		if(avg>=25){
+			System.out.println("Grade D");
+		}else{
+			System.out.println("Grade E");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q164 From Q163 (Using "if ladder")
+============== ===================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input marks average : ");
+		double avg=input.nextDouble();
+		if(avg>=75){
+			System.out.println("Grade A");
+		}else if(avg>=65){
+			System.out.println("Grade B");
+		}else if(avg>=45){
+			System.out.println("Grade C");
+		}else if(avg>=25){
+			System.out.println("Grade D");
+		}else{
+			System.out.println("Grade E");
+		}
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////////// 
+ 23. Relational Operators in Java
+	operator      Result
+	==            Equal to
+	!=            Not equal to
+	>             Greater than
+	<             Less than
+	>=            Greater than or equal to
+	<=            Less than or equal to
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q165 Relational Operators
+=========================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input number 1 : ");
+		int x=input.nextInt();
+		System.out.print("Input number 2 : ");
+		int y=input.nextInt();		
+		if(x==y){
+			System.out.println("x is equals to y");
+		}else{
+			System.out.print("x is not equals to y");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q166 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		int y=200;
+		System.out.println(x==y);
+		System.out.println(x=y);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q167 Exercise
+=============
+import java.util.*; 
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		int y=200;
+		if(x==y){
+			//
+		}
+		if(x=y){ //Illegal
+			
+		}
+		if((x=y)==0){ //Legal
+			
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+   24. Boolean Logical Operators in Java
+	Operator Result
+	&        Logical AND
+	|        Logical OR
+	^        Logical XOR (exclusive OR)
+	||       Short-circuit OR
+	&&       Short-circuit AND
+	?:       Ternar y if-then-else (Conditional Operator)			
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q168
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input attendance : ");
+		int attendance=input.nextInt();
+		System.out.print("Input average  : ");
+		double avg=input.nextInt();		
+		
+		if(attendance>=85 OR avg>=50){
+			System.out.println("eligible");
+		}else{
+			System.out.println("not eligible");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q169
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input attendance : ");
+		int attendance=input.nextInt();
+		System.out.print("Input average  : ");
+		double avg=input.nextInt();		
+		
+		if(attendance>=85 | avg>=50){
+			System.out.println("eligible");
+		}else{
+			System.out.println("not eligible");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q170
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		double avg=51;
+		boolean b=avg<50;
+		if(!b){
+			System.out.println("P");
+		}else{
+			System.out.println("F");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q171 | vs ||
+=============
+import java.util.*; 
+class Example{
+	public static void main(String args[]){
+		int x=5;
+		int y=3;
+		
+		System.out.println(x+" "+y); //prints 5 3
+		if(x++ == 5 | y++ == 5){
+			System.out.println("A");
+		}
+		System.out.println(x+" "+y); //prints 6 4
+		
+		x=5;y=3;
+		System.out.println(x+" "+y); //prints 5 3
+		if(x++ == 5 || y++ == 5){
+			System.out.println("A");
+		}
+		System.out.println(x+" "+y); //prints 6 3
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q172 Boolean AND (&) VS Short-circuit AND(&&)
+=============================================
+import java.util.*; 
+class Example{
+	public static void main(String args[]){
+		int x=4;
+		int y=5;
+		
+		System.out.println(x+" "+y); //prints 4 5
+		if(x++ == 5 & y++ == 5){
+			System.out.println("A");
+		}
+		System.out.println(x+" "+y); //prints 5 6
+		
+		x=4;y=5;
+		System.out.println(x+" "+y); //prints 4 5
+		if(x++ == 5 && y++ == 5){
+			System.out.println("A");
+		}
+		System.out.println(x+" "+y); //prints 5 5
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q173 Operator Assignment (op=)
+==============================
+class Example{
+	public static void main(String args[]){ 
+		int salary=1800;
+		int 5000=salary/5000;
+		
+		salary%=5000; // salary=salary%5000;
+		System.out.println(); 
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q174
+class Example{
+	public static void main(String args[]){ 
+		
+		int age=12;
+		
+		age+=10;  //age=age+10;
+		
+		System.out.println(); 
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q175 Exercise
+=============
+import java.util.*; 
+class Example{
+	public static void main(String args[]){
+		int x=99;
+		if(x == 100){
+			System.out.println("A");
+		}
+		x=99;		
+		if(x++ == 100){
+			System.out.println("B");
+		}
+		x=99;
+		if(++x == 100){
+			System.out.println("C");
+		}		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q176 Ternary Operator (Conditional Operator, If then else Operator)
+===================================================================import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input an integer : ");
+		int x=input.nextInt(); //-100 or 100
+		System.out.println(x); //
+		
+		int y;
+		if(x<0){
+			y=-x;
+		}else{
+			y=x;
+		}
+		System.out.println(x+" "+y); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q177 From Q165
+===============
+class Example{
+	public static void main(String args[]){ 
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input an integer : ");
+		int x=input.nextInt(); //-100 or 100
+		System.out.println(x); //
+		
+		/*int y;
+		if(x<0){
+			y=-x;
+		}else{
+			y=x;
+		}*/
+		int y= x<0 ? -x : x;
+		System.out.println(x+" "+y); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+    25.Operator Precedence in Java
+	( )[ ].
+	++,  – –, ,!
+	* / %
+	+ –
+	==,!=, <, >, <=, >=
+	&
+	^
+	|
+	&&
+	||
+	?:
+	op=                    
+	=
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q178 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		int x=10;
+		x=10+7*5/3;
+		System.out.println(x);	//28 or 21 or 17 ?
+		x=(10+7)*5/3;
+		System.out.println(x);	//28 or 21 or 17 ?
+		x=17*5/3;
+		System.out.println(x);	//28 or 17 ?
+		x=17/5*3;
+		System.out.println(x);	// 0 or 9 ?
+	}
+} 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+        26. Java Flow Control "for-loop"
+//////////////////////////////////////////////////////////////////////////////////////////
+Q179
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Hello Java");
+		System.out.println("Hello Java");		
+		System.out.println("Hello Java");		
+		System.out.println("Hello Java");		
+		System.out.println("Hello Java");		
+		System.out.println("Hello Java");		
+		System.out.println("Hello Java");		
+		System.out.println("Hello Java");		
+		System.out.println("Hello Java");		
+		System.out.println("Hello Java");		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q180
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		for(int i=0; i<10; i++) System.out.println("Hello Java");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q181
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=0; i<10; i++) System.out.println("Hello Java");
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q182
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=0; i<10; i++) 
+			System.out.println("Hello Java");
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q183
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=0; i<10; i++) 
+			System.out.println("A");
+			System.out.println("B");
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q184
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=0; i<10; i++); 
+			System.out.println("A");
+			System.out.println("B");
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q185
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=0; i<10; i++){
+			System.out.println("A");
+			System.out.println("B");
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q186 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=0; i<5; i++){
+			System.out.println("Hello Java");
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q187 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=5; i<10; i++){
+			System.out.println("Hello Java");
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q188 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=0; i<10; i+=2){
+			System.out.println("Hello Java");
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q189 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=0; i<10; i+=5){
+			System.out.println("Hello Java");
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q190 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=10; i<10; i++){
+			System.out.println("Hello Java");
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q191 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int i=0;
+		for( ; i<10; i++){
+			System.out.println("Hello Java");
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q192 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int i=0;
+		for( ; i<10; ){
+			System.out.println("Hello Java");
+			i++;
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q193 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=10; i>0; i--){
+			System.out.println("Hello Java");
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q194 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=10; i>0; i++){
+			System.out.println("Hello Java");
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q195 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(int i=0;  ; i++){ //condition ->default "true"
+			System.out.println("Hello Java");
+		}
+		///System.out.println("End."); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q196 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(; ; ){ //condition ->default "true"
+			System.out.println("Hello Java");
+		}
+		//System.out.println("End."); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q197 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.println("Start");
+		for(){ //Illegal
+			System.out.println("Hello Java");
+		}
+		//System.out.println("End."); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q198 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		int x0,x1,x2,x3,x4,x5,x6,x7,x8,x9;
+		System.out.print("Input a number : ");
+		x0=input.nextInt();
+	
+		System.out.print("Input a number : ");
+		x1=input.nextInt();
+
+		System.out.print("Input a number : ");
+		x2=input.nextInt();
+	
+		System.out.print("Input a number : ");
+		x3=input.nextInt();
+	
+		System.out.print("Input a number : ");
+		x4=input.nextInt();
+	
+		System.out.print("Input a number : ");
+		x5=input.nextInt();
+	
+		System.out.print("Input a number : ");
+		x6=input.nextInt();
+	
+		System.out.print("Input a number : ");
+		x7=input.nextInt();
+	
+		System.out.print("Input a number : ");
+		x8=input.nextInt();
+	
+		System.out.print("Input a number : ");
+		x9=input.nextInt();
+	
+		int total;
+		total=x0+x1+x2+x3+x4+x5+x6+x7+x8+x9;
+		System.out.println("Total : "+total);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q199 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		int x;
+		int total;
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total=x;
+
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.println("Total : "+total);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q200 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		int x;
+		int total=0;
+
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.print("Input a number : ");
+		x=input.nextInt();
+		total+=x;
+	
+		System.out.println("Total : "+total);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q201 From Q200 Using a "for-loop"
+=================================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		int x;
+		int total=0;
+		
+		for(int i=0; i<10; i++){
+			System.out.print("Input a number : ");
+			x=input.nextInt();
+			total+=x;
+		}
+		System.out.println("Total : "+total);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    27. Variable Scope and Life-time
+//////////////////////////////////////////////////////////////////////////////////////////
+Q202
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		System.out.println(x);
+		{
+			int y=200;
+			System.out.println(x);
+			System.out.println(y);//Legal
+			x++;
+			y++;
+		}
+		System.out.println(x);		
+		System.out.println(y); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q203
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		int x=100;
+		System.out.println(x);
+		{
+			int y=200;
+			System.out.println(x);
+			System.out.println(y);//Legal
+			x++;
+			y++;
+			int x=0; //Illegal
+			int y=0; //Illegal
+		}
+		int x=1; //Illegal
+		int y=2; //Legal
+		System.out.println(x);		
+		System.out.println(y);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q204 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int x=100;
+		System.out.println(x);	//Line 1
+		System.out.println(y);	//Line 2
+		System.out.println(z);	//Line 3
+		{
+			int y=200;	
+			System.out.println(x);	//Line 4
+			System.out.println(y);	//Line 5	
+			System.out.println(z);	//Line 6
+			{
+				int z=200;
+				System.out.println(x);	//Line 7
+				System.out.println(y);	//Line 8	
+				System.out.println(z);	//Line 9			
+			}
+			System.out.println(x);	//Line 10
+			System.out.println(y);	//Line 11	
+			System.out.println(z);	//Line 12			
+		}
+		System.out.println(x);	//Line 13
+		System.out.println(y);	//Line 14
+		System.out.println(z);	//Line 15	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q205 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		{
+			int y=0;
+			System.out.println(y);
+			y++;
+		}
+		{
+			int y=0;
+			System.out.println(y);
+			y++;
+		}
+		{
+			int y=0;
+			System.out.println(y);
+			y++;
+		}
+		{
+			int y=0;
+			System.out.println(y);
+			y++;
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q206 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<5; i++)
+		{
+			int y=0;
+			System.out.println(y);
+			y++;
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q207 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		{
+			int y=0;
+			System.out.println(y);
+			y++;
+		}
+		{
+			int y=0;
+			System.out.println(y);
+			y++;
+		}
+		int y=1;
+		{
+			int y=0; //Illegal
+			System.out.println(y);
+			y++;
+		}
+		{
+			int y=0; //Illegal
+			System.out.println(y);
+			y++;
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q208 Exercise  (Scope of For-loop Control Variable)
+============= =====================================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<10; i++){
+			System.out.println(i);
+		}
+		System.out.println(i); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q209 Exercise  (Scope of For-loop Control Variable)
+============= =====================================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<10; i++){
+			System.out.println("A : "+i); //Legal
+			System.out.println("B : "+i); //Legal
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q210 Exercise  (Scope of For-loop Control Variable)
+============= =====================================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<10; i++)
+			System.out.println("A : "+i); //Legal
+			System.out.println("B : "+i); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q211 Exercise  (Life-time of For-loop Control Variable)
+============= =========================================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<10; i++){
+			int j=0;
+			System.out.println(i+" "+j);
+			j++;
+		}
+		//System.out.println("i : "+i);	//Illegal
+		//System.out.println("j : "+j);	//Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q212 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<=100; i++){
+			System.out.println(i);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q213 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=100; i>0; i--){
+			System.out.println(i);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q214 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<=100;i++){
+			System.out.println(i++);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q215
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<=100;i+=2){
+			System.out.println(i);
+		}
+	}
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+Q216
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<=100;i++){
+			if(i%2==0) System.out.println(i);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q217
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<=100;i++){
+			if(i%2==1) System.out.println(i);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q218
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<=100;i++){
+			if(i%5==0) System.out.println(i);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q219
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int total=0;
+		for(int i=0; i<=100;i++){
+			total+=i;
+		}
+		System.out.println(total);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    28 Variable Initialization
+//////////////////////////////////////////////////////////////////////////////////////////
+Q220
+class Example{
+	public static void main(String args[]){
+		int x;
+		System.out.println(x); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q221
+class Example{
+	public static void main(String args[]){
+		int x;
+		x=0;
+		System.out.println(x); //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q222
+class Example{
+	public static void main(String args[]){
+		int x;
+		{
+			x=0;
+		}
+		System.out.println(x); //Prints 0
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q223
+class Example{
+	public static void main(String args[]){
+		int x;
+		int a=100;
+		if(a>0){
+			x=0;
+		}
+		System.out.println(x); //Illegal ?
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q224
+class Example{
+	public static void main(String args[]){
+		int x;
+		int a=100;
+		if(a>0){
+			x=0;
+		}else{
+			x=-1;
+		}
+		System.out.println(x); //Legal 
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q225 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		int num, total=0;
+		for(int i=0;i<10;i++){
+			System.out.print("Input a number : ");
+			num=input.nextInt();
+			total+=num;
+		}
+		System.out.println(total);
+		System.out.println("num : "+num); //Illegal ?
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q226 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		final int x=100;
+		final int y;
+		y=100;
+		int z=100;
+		int a,b,c,d;
+		if(x>0){a=0;}
+		if(y>0){b=0;}
+		if(z>0){c=0;}
+		if(100>0){d=0;}
+
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q227 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		System.out.println("Start");
+		for(double d=1.5; d<12.0;d++){
+			System.out.println("Hello Java");
+		}
+		System.out.println("End.");
+		//----------------------------------
+		for(byte b=0; b<127;b++){
+			System.out.println("byte");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q228 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(char ch='A';ch<='Z';ch++){
+			System.out.println(ch);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q229 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<10; i++){
+			System.out.println("for-loop 1");
+		}
+		for(int i=0; i<10; i++){
+			System.out.println("for-loop 2");
+		}
+		for(int i=0; i<10; i++){
+			System.out.println("for-loop 3");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q230 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<10; i++){
+			System.out.println("for-loop 1");
+		}
+		for(int i=0; i<10; i++){
+			System.out.println("for-loop 2");
+		}
+        int i=0;
+		for(int i=0; i<10; i++){
+			System.out.println("for-loop 3");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q231 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=9; i++<10;){
+			System.out.println("loop 1");
+		}
+
+		for(int i=9; ++i<10;){
+			System.out.println("loop 2");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q232 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0,j=0,k=0; i<10 ;i++,j++,k++){
+			System.out.println(i+"  "+j+"  "+k);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q233 Exercise
+=============
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0,j=10; i<j;i++,j--){
+			System.out.println(i+"  "+j);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q234 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		System.out.println("Start");
+		int i=0;
+		for(System.out.println("A");i<10;System.out.println("C")){
+			System.out.println("B");
+			i++;
+		}
+		System.out.println("End");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    29. Random Numbers
+//////////////////////////////////////////////////////////////////////////////////////////
+Q235
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random input=new Random();
+		int x;
+		x=input.nextInt();	//min of int to max of int
+		System.out.println(x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q236 
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random input=new Random();
+		for(int i=0; i<10; i++){	
+			int x=input.nextInt();	//min of int to max of int
+			System.out.println(x);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q237
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random input=new Random();
+		for(int i=0; i<10; i++){	
+			int x=input.nextInt();	//min of int to max of int
+			x=x<0 ? -x : x; //if(x<0){x=-x;}
+			System.out.println(x);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q238
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random input=new Random();
+		for(int i=0; i<10; i++){	
+			int x=input.nextInt();	//min of int to max of int
+			x=x<0 ? -x : x; //if(x<0){x=-x;} //0 to max of int
+			x=x%100;//0 to 99
+			System.out.println(x);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q239
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random input=new Random();
+		for(int i=0; i<10; i++){	
+			int x=input.nextInt();	//min of int to max of int
+			x=(x<0?-x:x)%10+1; //1 to 10
+			System.out.println(x);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q240
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random input=new Random();
+		for(int i=0; i<10; i++){	
+			int x=input.nextInt(10); //0 to 9
+			System.out.println(x);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q241
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random input=new Random();
+		for(int i=0; i<10; i++){	
+			int x=input.nextInt(101); //0 to 100
+			System.out.println(x);
+		}
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+Q242 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<10; i++){	
+			double d=Math.random();
+			System.out.println(d);
+			//Insert code;
+			//				//Prints 1 to 100
+		}
+	}
+}
+/*
+0.953112698132942
+0.543875645111829
+0.09304353723085412
+0.479827658597224
+0.9998343271158948
+0.886152827165946
+0.08647433319005171
+0.023943688276697572
+0.22672694180562736
+0.9574531335953913
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    30. Java Flow Control "while-loop"
+//////////////////////////////////////////////////////////////////////////////////////////
+Q243
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		System.out.println("Start ");	
+		int i=0;
+		for(;i<10;){		
+			System.out.println(i);	
+			i++;
+		}	
+		System.out.println("End.");	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q244
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		System.out.println("Start ");	
+		int i=0;
+		while(i<10){		
+			System.out.println(i);	
+			i++;
+		}	
+		System.out.println("End.");	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q245 Exercise 1 (Pritns 1 to 100)
+=================================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=1;
+		while(i<=100){		
+			System.out.println(i);	
+			i++;
+		}	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q246 From Q245
+==============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=0;
+		while(i<10){		
+			System.out.println(++i);	
+		}	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q247 Exercise 2 (Pritns 100 to 1)
+=================================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=100;
+		while(i>0){		
+			System.out.println(i--);	
+		}	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q248 Exercise 3 (Even nnumbers 0 to 100)
+========================================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=0;
+		while(i<100){		
+			System.out.println(i+=2);	
+		}	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q249 Exercise 4 (odd nnumbers 0 to 100)
+====================================== 
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=0;
+		while(i<100){		
+			if(i%2==1){
+				System.out.println(i);	
+			}	
+			i++;
+		}	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q250 From Q249
+==============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=0;
+		while(i<100){		
+			if(i%2==1){
+				System.out.println(i);	
+			}	
+		}	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q251 From Q250
+==============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=0;
+		while(i<100){		
+			if(i%2==1){
+				System.out.println(i++);	
+			}	
+		}	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q252 From Q251
+==============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=0;
+		while(i<100){		
+			if(++i%2==1){
+				System.out.println(i);	
+			}	
+		}	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q253 Exercise 5 (sum of digits 1 to 100)
+======================================= 
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=0;
+		int tot=0;
+		while(++i<=100){
+			tot+=i;	
+		}
+		System.out.println(tot);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q254 Exercise 6 (Prints 100 Random numbers 1 to 100)
+==================================================== 
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random r=new Random();
+		int i=0;
+		while(++i<100){
+			int x=r.nextInt(100)+1;
+			System.out.println(x);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q255 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random r=new Random();
+		int x=r.nextInt(100)+1; //1 to 100
+		while(x!=100){
+			System.out.println(x);
+			x=r.nextInt(100)+1; //1 to 100
+		}
+		System.out.println(x);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q256 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input a number : ");
+		int num=input.nextInt();
+		int total=0;
+		while(num!=-1){
+			total+=num;
+			System.out.print("Input a number : ");
+			num=input.nextInt();
+		}
+		System.out.println(total);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q257 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input a number : ");
+		int num=input.nextInt();
+		int count=0;
+		while(num!=0){
+			num=num/10;
+			count++;
+		}
+		System.out.println("No of digits : "+count);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    31. Java Flow Control "do/while-loop"
+//////////////////////////////////////////////////////////////////////////////////////////
+Q258
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=0;
+		while(i<10){
+			System.out.println("while-loop "+i++);
+		}
+		System.out.println("----------------");
+		
+		int j=0;
+		do{
+			System.out.println("do/while loop : "+j++);
+		}while(j<10);
+		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q259 while-loop vs do/while-loop
+================================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int i=100;
+		while(i<10){
+			System.out.println("while-loop "+i++);
+		}
+		System.out.println("----------------");
+		
+		int j=100;
+		do{
+			System.out.println("do/while loop : "+j++);
+		}while(j<10);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q260 From Q255
+==============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random r=new Random();
+		
+		int x;
+		do{
+			x=r.nextInt(100)+1; //1 to 100
+			System.out.println(x);
+		}while(x!=100);		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q261 From Q257
+==============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input a number : ");
+		int num=input.nextInt();
+		int count=0;
+		do{
+			num=num/10;
+			count++;
+		}while(num!=0);
+		System.out.println("No of digits : "+count);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    32. Java Flow Control "switch"
+//////////////////////////////////////////////////////////////////////////////////////////
+Q262
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int x=2;
+		if(x==1){
+			System.out.println("Number 1 ");	
+		}else if(x==2){
+			System.out.println("Number 2 ");	
+		}else if(x==3){
+			System.out.println("Number 3 ");	
+		}else if(x==4){
+			System.out.println("Number 4 ");	
+		}else{
+			System.out.println("Wrong Number ");	
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q263 Using "switch"
+===================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int x=2;
+		switch(x){
+			case 1	:	System.out.println("Number 1 ");	
+			case 2	:	System.out.println("Number 2 ");	
+			case 3	:	System.out.println("Number 3 ");	
+			case 4 	:	System.out.println("Number 4 ");	
+			default	:	System.out.println("Wrong Number");		
+		}
+		/*
+		if(x==1){
+			System.out.println("Number 1 ");	
+		}else if(x==2){
+			System.out.println("Number 2 ");	
+		}else if(x==3){
+			System.out.println("Number 3 ");	
+		}else if(x==4){
+			System.out.println("Number 4 ");	
+		}else{
+			System.out.println("Wrong Number ");	
+		}
+		*/
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q264 Using "break"
+=================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int x=2;
+		switch(x){
+			case 1	:	System.out.println("Number 1");break;
+			case 2	:	System.out.println("Number 2");break;
+			case 3	:	System.out.println("Number 3");break;	
+			case 4 	:	System.out.println("Number 4");break;	
+			default	:	System.out.println("Wrong Number");//break;		
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q265 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input month number : ");
+		int month=input.nextInt();
+		
+        System.out.println("31 days");
+		System.out.println("30 days");
+		System.out.println("28 days");
+		System.out.println("Wrong month");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q266 From Q265 (Using "if ladder")
+==================================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input month number : ");
+		int month=input.nextInt();
+		if(month==1 || month==3 || month==5 || month ==7 || month==8 || month==10 || month==12){
+				System.out.println("31 days");
+		}else if(month==4 || month==6 || month	==9 || month==11){
+				System.out.println("30 days");
+		}else if(month==2){
+				System.out.println("28 days");
+		}else{
+				System.out.println("Wrong month");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q267 From Q265 (Using "switch")
+===============================
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input month number : ");
+		int month=input.nextInt();
+		switch(month){
+			case 1	:	
+			case 3	:
+			case 5	:
+			case 7	:
+			case 8	:
+			case 10	:	
+			case 12	:	System.out.println("31 days");break;
+			case 4	:
+			case 6	:
+			case 9	:
+			case 11	:	System.out.println("30 days");break;
+			case 2	:	System.out.println("28 days");break;
+			default	:	System.out.println("Wrong month"); 
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q268 Case I
+===========
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int x=2;
+		switch(x){
+			case 4 	:	System.out.println("Number 4");break;	
+			case 2	:	System.out.println("Number 2");break;
+			case 3	:	System.out.println("Number 3");break;	
+			case 1	:	System.out.println("Number 1");break;
+			default	:	System.out.println("Wrong Number");//break;		
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q269 Case II
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int x=2;
+		switch(x){
+			case 1	:	System.out.println("Number 1");break;
+			case 2	:	System.out.println("Number 2");break;
+			case 3	:	System.out.println("Number 3");break;	
+			case 4 	:	System.out.println("Number 4");break;	
+			default	:	System.out.println("Wrong Number");//break;		
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q270 Case III
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int x=2;
+		switch(x){
+			case 1	:	System.out.println("Number 1");break;
+			case 2	:	System.out.println("Number 2");break;
+			default	:	System.out.println("Wrong Number");break;		
+			case 3	:	System.out.println("Number 3");break;	
+			case 4 	:	System.out.println("Number 4");//break;	
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q271 Case IV
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int x=2;
+		switch(x){
+			case 1	:	System.out.println("Number 1");break;
+			case 2	:	System.out.println("Number 2");break;
+			case 3	:	System.out.println("Number 3");break;	
+			case 4 	:	System.out.println("Number 4");break;	
+			//default	:	System.out.println("Wrong Number");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q272 Case V
+===========
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int x=2;
+		switch(x){
+			case 1	:	System.out.println("Number 1");break;
+			case 2	:	System.out.println("Number 2");break;
+			case 1	:	System.out.println("Number 1");break;	//Illegal
+			case 4 	:	System.out.println("Number 4");break;	
+			default	:	System.out.println("Wrong Number");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q273 Case VI
+============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int a=3;
+		int x=2;
+		switch(x){
+			case 1	:	System.out.println("Number 1");break;
+			case a	:	System.out.println("Number 3");break;
+			case 'A':   //Legal
+			default	:	System.out.println("Wrong Number");
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q274 Case VIII
+==============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		//Insert code
+		switch(x){
+			//
+		}
+	}
+}
+//A.	byte x=1;
+//B.	short x=1;
+//C.	int x=1;
+//D.	char x='A';
+//E.	long x=2; //Illegal
+//F.	float x=2; //Illegal
+//G.	double x=3; //Illegal
+//H.	String, enum are legal
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    33. Keyword "break", "continue" and "return"
+//////////////////////////////////////////////////////////////////////////////////////////
+Q275
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		System.out.println("Start");
+		for(int i=0; i<10; i++){
+			System.out.println("i : "+i);
+			if(i==5){break;}
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q276 From Q255 (Using "break")
+==============================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		Random r=new Random();
+		while(true){
+			int x=r.nextInt(100)+1; 
+			System.out.println(x);
+			if(x==100){break;}	
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q277 Keyword "continue"
+=======================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		System.out.println("Start");
+		for(int i=0; i<10; i++){
+			if(i==5){continue;}
+			System.out.println("i : "+i);
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q278 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		System.out.println("Start");
+		for(int i=0; i<10; i++){
+			if(i%2==0){continue;}
+			System.out.println("i : "+i);
+		}
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q279 Keyword "return"
+=====================
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		int num=100;
+		System.out.println("Start");
+		System.out.println("A");
+		System.out.println("B");
+		if(num>0){return;}
+		System.out.println("C");
+		System.out.println("D");
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+Q280 Exercise
+=============
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		System.out.print("Start ->");
+		for(int i=0; i<10 ; i++){
+			//Insert code
+			System.out.print(i+" ");
+		}
+		System.out.println("End.");
+	}
+}
+//A.	if(i==5){break;} 	==>Start 0 1 2 3 4 End
+//B.	if(i==5){continue;} ==>Start 0 1 2 3 4 6 7 8 9 End
+//C.	if(i==5){return;}	==>Start 0 1 2 3 4 
+//D.	Insert nothing		==>Start 0 1 2 3 4 5 6 7 8 9 End
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    34. Nested Loop
+//////////////////////////////////////////////////////////////////////////////////////////
+Q281
+import java.util.*;
+class Example{
+	public static void main(String args[]){ 
+		for(int i=0; i<10; i++){
+			for(int j=0; j<10; j++){
+				System.out.println(i+" "+j);
+			}
+		}
+	}
+}

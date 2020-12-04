@@ -1,0 +1,511 @@
+===========================================================================
+JavaFx - using intellidea
+=======================================================================
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.net.URL;
+
+public  class AppInitializer extends Application {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        URL resource = this.getClass().getResource("MainForm.fxml");// catch //alt + Enter -> to assign a local variable
+
+        // load using FXMLLoader java class
+        // alt + Enter -> to assign reference variable
+        Parent load = FXMLLoader.load(resource);
+
+        //make a new scene from using loaded load
+        Scene scene = new Scene(load);
+
+        //set the scene and show
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////
+14.09.2020
+
+new project
+give project name --> settings -> module name = give subproject name
+new fxml file (MainForm.fxml)
+new class (MainFormController.java)
+new javaFxApplication (AppInitializer.java)
+
+set fx:controller="MainFormController" (java class controller)  in fxml file
+
+r click on fxml file and go to sceene builder
+create -> text, label, button
+
+------------------------------------------------------------------------
+public class MainFormController {
+}
+
+-------------------------------------------------------------------------
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class AppInitializer extends Application {
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass()
+		.getResource("MainForm.fxml"))));
+        primaryStage.show();
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////
+access the buttons
+
+set id and on action
+
+save
+r click on and set attributes to and methods
+
+----------------------------------------------------------------------
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+public class MainFormController {
+    public TextField txtId;
+    public Button btnClickme;
+
+    public void btnClickmeOnAction(ActionEvent actionEvent) {
+        System.out.print("click!!!!!!!");
+    }
+}
+//////////////////////////////////////////////////////////////////////////
+naming methods
+
+buttons - btnButtonName
+test fileds - txtId, txtUsername
+////////////////////////////////////////////////////////////////////////
+create attributes and methods after creating button and etc in scene builder
+
+fx id = "sdfs"
+click on id --> alt Enter --> create fileds and methods
+
+/////////////////////////////////////////////////////////////////////////////////////
+get the text without spaces and comparing
+
+txtUserName.getText().trim().equals("admin") // trim - neglect spaces
+
+////////////////////////////////////////////////////////////////////////////////////
+make alerts
+
+new Alert(Alert.AlertType.WARNING,"Try Again", ButtonType.OK).show();
+
+/////////////////////////////////////////////////////////////////////////
+Create combo box
+//////////////////
+
+public class ComboBoxUIController{
+
+	public ComboBox<String> cmbOptions; // buttons
+    	public Label lblAnswer;
+
+	public void initilize(){
+		ObservableList<String> list = FXCollections.observableArrayList();
+		list.add("Option 01");
+		list.add("Option 02");
+		list.add("Option 03");
+		list.add("Option 04");
+		list.add("Option 05");
+		cmbOptions.setItems(list);
+	
+		cmbOptions.getSelectionModel().selectedItemProperty().
+		      addListner((observable, oldValue, newValue) -> {
+
+			lblAnswer.setText(newValue);
+		});		
+
+}
+
+///////////////////////////////////////////////////////////////////////
+create checkbox
+///////////////////
+
+public class CheckBoxUIController {
+    public CheckBox cBoxJava;
+    public CheckBox cBoxhtml;
+    public CheckBox cBoxpython;
+    public CheckBox cBoxcss;
+    public Label lblAnswer;
+
+    public void btnSelectOnAction(ActionEvent actionEvent) { //select button - method
+        String languages = "";
+        if (cBoxJava.isSelected()){
+            languages += "java ";
+        }
+        if (cBoxhtml.isSelected()){
+            languages += "html ";
+        }
+        if (cBoxcss.isSelected()){
+            languages += "css ";
+        }
+        lblAnswer.setText(languages);
+
+    }
+}
+
+///////////////////////////////////////////////////////////////////////
+create radio button - (Ex: select male female)
+///////////////////////////////////////////////
+
+public class RadioButtonUIController {
+    public RadioButton rdnMale;
+    public RadioButton rdnFemale;
+    public Label lblSelectedGender;
+
+    public void btnClickmeOnAction(ActionEvent actionEvent) {
+        String selectedGender = "Female";
+        if(rdnMale.isSelected()){
+            selectedGender = "Male";
+        }
+        lblSelectedGender.setText(selectedGender);
+    }
+}
+
+///////////////////////////////////////////////////////////////////////
+Create a list box
+//////////////////////
+
+public class ListUIController {
+    public ListView<String> lstOption;
+    public Label lblAnswer;
+
+    public void initialize(){
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        //short cut --> fori tab
+        for (int i = 0; i < 100; i++) {
+            obList.add("Option : "+i);
+        }
+        lstOption.setItems(obList);
+
+        //----------------
+        lstOption.getSelectionModel().selectedItemProperty().addListener
+                ((observable, oldValue, newValue) ->
+                lblAnswer.setText(newValue));
+    }
+}
+
+///////////////////////////////////////////////////////////////////////
+Crete a Table
+///////////////////////
+
+public class TableUIController {
+    public TableView<CustomerTM> tblCustomer;  //TM - Table Model
+    public TableColumn colCustomerID;
+    public TableColumn colName;
+    public TableColumn colAddress;
+    public TableColumn colSalary;
+    public TableColumn colOperate;
+
+    public void initialize(){
+
+        //-------------id, name, address , salary , button are assigned to table at last
+        colCustomerID.setCellValueFactory( new PropertyValueFactory("id"));
+        colCustomerID.setCellValueFactory( new PropertyValueFactory("name"));
+        colCustomerID.setCellValueFactory( new PropertyValueFactory("address"));
+        colCustomerID.setCellValueFactory( new PropertyValueFactory("salary"));
+        colCustomerID.setCellValueFactory( new PropertyValueFactory("button"));
+
+        //creating table model
+        ObservableList<CustomerTM> customerTMList = FXCollections.observableArrayList(); //creating bucket
+        //putting to the bucket
+        customerTMList.add(
+                new CustomerTM("C001", "Nimal", "Colombo", 2500,
+                        new Button("Delete"))
+        );
+
+        customerTMList.add(
+                new CustomerTM("C002", "Bandara", "Panadura", 2500,
+                        new Button("Delete"))
+        );
+
+        //set data to the table using observable list
+        tblCustomer.setItems(customerTMList);
+    }
+}
+
+---------------------------------------------------------------------
+make another object class to save customer details (encapsulated bean)
+
+public class CustomerTM {
+    private String id;
+    private String name;
+    private String address;
+    private double salary;
+    private Button btn;
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+	//shoud be added all getters and settes
+
+    public CustomerTM() {
+    }
+
+    public CustomerTM(String id, String name, String address, double salary, Button btn) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.btn = btn;
+    }
+
+    @Override                    // alt insert --> toString
+    public String toString() {
+        return "CustomerTM{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", salary=" + salary +
+                ", btn=" + btn +
+                '}';
+    }
+}
+
+///////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+=====================================================================
+PROJECT
+======================================================================
+
+//////////////////////////////////////////////////////////////////////
+Navigation
+////////////
+private void setUi(String location) throws IOException {
+        Stage stage = (Stage)root.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(this.getClass().
+                getResource("/view/"+location+".fxml"))));
+        stage.centerOnScreen();
+    }
+
+* location - fxml file location in src
+
+//////////////////////////////////////////////////////////////////////
+create static array list
+/////////////////////////
+
+public static ArrayList<Customer> customerDataTable = new ArrayList();
+
+*add data to arrayList
+
+customerDataTable.add(new Customer("C001", "Kamal", "Colombo", 2500));
+
+//////////////////////////////////////////////////////////////////////
+*jvm search this method with initialize name
+
+public void initialize(){
+    }
+
+///////////////////////////////////////////////////////////////////////
+access to a class, get the arrayList and assign to the list
+
+List<Customer> cList = DataBase.customerDataTable;
+
+*DataBase - class
+*customerDataTable - arrayList
+
+//////////////////////////////////////////////////////////////////////
+make observable list
+
+ObservableList<CustomerTM> obList = FXCollections.observableArrayList();
+
+///////////////////////////////////////////////////////////////////////
+add objects to the table -  using above lists
+//////////////////////////////////////////////
+
+List<Customer> cList = DataBase.customerDataTable;
+ObservableList<CustomerTM> obList = FXCollections.observableArrayList();
+
+for(Customer c: cList){
+      Button btn = new Button("Delete");
+      CustomerTM tm = new CustomerTM(c.getId(), c.getName(), c.getAddress(), c.getSalary(), btn);
+      obList.add(tm);
+}
+tblCustomer.setItems(obList);
+
+/////////////////////////////////////////////////////////////////////
+set values to the columns
+//////////////////////////
+
+public  void initialize(){
+        colId.setCellValueFactory(new PropertyValueFactory("id"));
+        colName.setCellValueFactory(new PropertyValueFactory("name"));
+       
+
+        loadAllCustomer();      // Alt + Enter then Enter// loading is done separately
+    }
+
+
+//////////////////////////////////////////////////////////////////////
+Exception handling
+---------------------
+
+try{
+          double salary = Double.parseDouble(txtSalary.getText());
+}catch (Exception e){
+            new Alert(Alert.AlertType.WARNING, e.toString(), ButtonType.OK).show();
+            return;   return from the method
+}
+
+//////////////////////////////////////////////////////////////////////
+addListner to show the details when selecting
+---------------------------------------------
+
+tblCustomer.getSelectionModel().selectedItemProperty().
+                addListener((observable, oldValue, newValue) -> {
+                    setSelectedValue(newValue);
+                });
+
+private void setSelectedValue(CustomerTM newValue) {
+        txtId.setText(newValue.getId());
+        txtName.setText(newValue.getName());
+        txtAddress.setText(newValue.getAddress());
+        txtSalary.setText(String.valueOf(newValue.getSalary()));
+    }
+
+*newValue takes tblCustomer objects
+
+//////////////////////////////////////////////////////////////////////
+update the details of a column
+
+public void btnUpdateOnAction(ActionEvent actionEvent) {
+        //------------method 01
+        /*for(Customer customer: DataBase.customerDataTable){
+            if(customer.getId().equals(txtId.getText())){
+                Customer temp = new Customer(
+                        txtId.getText(), txtName.getText(),
+                        txtAddress.getText(),
+                        Double.parseDouble(txtSalary.getText())
+                );
+                DataBase.customerDataTable.remove(customer);
+                DataBase.customerDataTable.add(temp);
+                loadAllCustomer();
+                return;
+            }
+        }*/
+
+        //----------method 02
+        for(Customer customer: DataBase.customerDataTable){
+            if(customer.getId().equals(txtId.getText())){
+                customer.setId(txtId.getText());
+                customer.setName(txtName.getText());
+                customer.setAddress(txtAddress.getText());
+                customer.setSalary(Double.parseDouble(txtSalary.getText()));
+                loadAllCustomer();
+                return;
+            }
+        }
+    }
+
+//////////////////////////////////////////////////////////////////////
+handle the error when listner take a null and pass
+---------------------------------------------------
+
+tblCustomer.getSelectionModel().selectedItemProperty().
+                addListener((observable, oldValue, newValue) -> {
+                    if (newValue != null) {		
+                        setSelectedValue(newValue);
+                    }
+                });
+
+//////////////////////////////////////////////////////////////////////
+create date and time
+---------------------
+
+Date date = new Date();
+        SimpleDateFormat df = new
+                SimpleDateFormat("YYYY-MM-dd");
+        String currentDate = df.format(date);
+        lblDate.setText(currentDate);    //lblDate - text field in interface
+
+Timeline timeline = new
+                Timeline(new
+                KeyFrame(Duration.ZERO, e -> {
+            LocalTime cT = LocalTime.now();
+            lblTime.setText(cT.getHour() + ": " +
+                    cT.getMinute() + ": " +
+                    cT.getSecond()
+            );
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+
+/////////////////////////////////////////////////////////////////////////
+add list to a combo box
+------------------------
+
+ObservableList<String> obList = FXCollections.observableArrayList();
+        DataBase.itemDataTable.stream().forEach(e -> {
+            obList.add(e.getCode());
+        });
+        cmbItemCOde.setItems(obList);
+
+////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+18/09/2020 friday content
+
+//////////////////////////////////////////////////////////////////////
+generated order id - in placeorderformcontroller
+
+private void generateOrderId(){
+        String orderId="D-001";
+        if (DataBase.orderDataTable.isEmpty()){
+            lblOrderId.setText(orderId);
+            return;
+        }
+        //-----------------
+        Order tempOrder=
+                DataBase.orderDataTable.get(DataBase.orderDataTable.size()-1);
+	String tempId = tempOrder.gerOrderId();
+	String[] tempArray=tempId.split("-"); //[D,003]
+        int num=Integer.parseInt(tempArray[1]); // 003 ---> 3
+        num++;
+        orderId="D-"+String.format("%04d",num);
+        lblOrderId.setText(orderId);
+
+    }
+
+/////////////////////////////////////////////////////////////////////
+update the quantity
+
+file -> project structures -> artiface -> plus mark -> jar -> 
+tick icluding project build
+
+build - > build artifact

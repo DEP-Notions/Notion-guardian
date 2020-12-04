@@ -1,0 +1,1390 @@
+01
+import javax.swing.*;
+public class Demo {
+    public static void main(String[] args) {// psvm then Tab
+        JFrame f1 = new JFrame();
+        f1.setSize(300,300);
+        f1.setTitle("Sample");
+        f1.setDefaultCloseOperation(3);
+        f1.setLocationRelativeTo(null);
+        f1.setVisible(true);
+
+    }
+}
+
+////////////////////////////////////////////////////////////////////////
+02
+import javax.swing.*;
+public class Demo {
+    public static void main(String[] args) {// psvm then Tab
+        JFrame f1 = new JFrame();
+        f1.setSize(300,300);
+        f1.setTitle("Sample");
+        f1.setDefaultCloseOperation(3);
+        f1.setLocationRelativeTo(null);
+        f1.setVisible(true);
+
+        JFrame f2 = new JFrame();
+        f2.setSize(300,300);
+        f2.setTitle("Sample");
+        f2.setDefaultCloseOperation(3);
+        f2.setLocationRelativeTo(null);
+        f2.setVisible(true);
+
+    }
+/////////////////////////////////////////////////////////////////////////
+03
+import javax.swing.*;
+
+public class Demo {
+    public static void main(String[] args) {// psvm then Tab
+        int length;
+        int width;
+        int height;
+
+        length = 12;
+        width = 5;
+        height = 3;
+
+        int volume;
+        volume = length * width * height;
+        System.out.println(volume);
+
+    }
+}
+//////////////////////////////////////////////////////////////////////////
+class Box{
+	int length; //attribute declaration
+	int width;
+	int height;
+
+	void setValue(int l, int w, int h){
+		length = l;
+		width = w;
+		height = h;
+	}
+
+	void printVolume(){			//method declaration
+		int volume; 			//local vairable
+		volume = length*height*width;
+		System.out.println(volume);
+	}
+
+}
+
+//////////////////////////////////////////////////////////////////////////
+(Calling Parameterized Methods)
+
+04
+
+ class Box {
+    int length; // Attribute Declaration
+    int width;
+    int height;
+
+    void setValue(int l, int w, int h){
+        length=l;
+        width=w;
+        height=h;
+    }
+    void printVolume(){// Method Declaration
+        int volume; // local Variable
+        volume=length*height*width;
+        System.out.println(volume);
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+        System.out.println("Start Main");
+        Box b1= new Box();
+        System.out.println(b1);
+        b1.setValue(12,5,3);
+        b1.printVolume();
+        System.out.println("End Main");
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////
+(Calling return types methods)
+05
+
+ class Box {
+    int length; // Attribute Declaration, instance attributes
+    int width;
+    int height;
+
+    void setValue(int l, int w, int h){
+        length=l;
+        width=w;
+        height=h;
+    }
+    int printVolume(){	// Method Declarationbwith return type
+        return (length*height*width);
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+        System.out.println("Start Main");
+        Box b1= new Box();
+        b1.setValue(12,5,3);
+        int volume=b1.printVolume();
+        System.out.println(volume);
+        System.out.println("End Main");
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////
+Case VI Default Values
+06
+
+ class Box {
+    int length=0; // Attribute Declaration // instance
+    int width;
+    int height;
+
+    void setValue(int l, int w, int h){
+        length=l;
+        width=w;
+        height=h;
+    }
+    int printVolume(){// Method Declaration
+        return (length*height*width);
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+        System.out.println("Start Main");
+        Box b1= new Box();
+       // b1.setValue(12,5,3);
+        int volume=b1.printVolume();
+        System.out.println(volume);
+        System.out.println("End Main");
+    }
+///////////////////////////////////////////////////////////////////////
+07
+
+import javax.swing.*;
+
+class Box {
+     byte a;
+     short b;
+     int c;
+     long d;
+     float e;
+     double f;
+     char g;
+     boolean h;
+     String s;
+     Box b1;
+     JFrame f1;
+}
+
+class Demo{
+    public static void main(String[] args) {
+        int[] xr=new int[3];
+        System.out.println(xr[0]+" "+xr[1]+" "+xr[2]);
+
+        Box c1=new Box();
+        System.out.println("byte  : "+c1.a);
+        System.out.println("short : "+c1.b);
+        System.out.println("int   : "+c1.c);
+        System.out.println("long  : "+c1.d);
+        System.out.println("float : "+c1.e);
+        System.out.println("double: "+c1.f);
+        System.out.println("chat  : "+c1.g);
+        System.out.println("bool  : "+c1.h);
+        System.out.println("String: "+c1.s);
+        System.out.println("Box   : "+c1.b1);
+        System.out.println("JFrame: "+c1.f1);
+    }
+}
+//////////////////////////////////////////////////////////////////////////
+import javax.swing.*;
+
+class Box {
+    int x;
+    int y;
+
+    void set(int x, int y) {
+        x = x;  //cannot identify which x, so compiler select local x in ()
+        y = y;
+        System.out.println(x + y);
+    }
+}
+
+class Demo {
+    public static void main(String[] args) {
+       /* Box b1=new Box();
+        b1.set(10,20);*/
+        //-----------
+        new Box().set(10,20);
+    }
+}
+//////////////////////////////////////////////////////////////////////
+(Keyword "this")
+09
+import javax.swing.*;
+
+class Box {
+    int x;
+    int y;
+
+    void set(int x, int y) {
+        this.x = x;
+        this.y = y;
+        System.out.println(x + y);
+    }
+}
+
+class Demo {
+    public static void main(String[] args) {
+       /* Box b1=new Box();
+        b1.set(10,20);*/
+        //-----------
+        new Box().set(10,20);
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+
+10
+
+ Object Initialization (Contructors)
+
+
+class Box {
+    Box() {
+        System.out.println("Constructor");
+    }
+    static { // static Block
+        System.out.println("Static Block");
+    }
+    {// Instance Block
+        System.out.println("Instance Block");
+    }
+}
+class Demo {
+    public static void main(String[] args) {
+        new Box();
+    }
+}
+
+====================================================================================
+Inheritance
+===================================================================================
+011 INHARITANCE=------------
+
+
+class Cat{
+    void sound(){
+        System.out.println(" Cat Sound..");
+    }
+
+    void walk(){
+        System.out.println(" Cat Walk..");
+    }
+}
+
+
+class Dog{
+    void sound(){
+        System.out.println(" Dog Sound..");
+    }
+
+    void walk(){
+        System.out.println(" Dog Walk..");
+    }
+}
+
+
+
+public class Demo{
+    public static void main(String[] args) {
+        Cat c1= new Cat();
+        c1.sound();
+        c1.walk();
+        System.out.println("////////////");
+       Dog d1= new Dog();
+        d1.sound();
+        d1.walk();
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+single inheritance
+012
+
+class Animal{
+    void sound() {}
+
+    void walk() {}
+}
+
+
+class Dog extends Animal{
+    void sound() {
+        System.out.println(" Dog Sound..");
+    }
+
+    void walk() {
+        System.out.println(" Dog Walk..");
+    }
+}
+
+
+public class Demo {
+    public static void main(String[] args) {
+        Dog d1 = new Dog();
+        d1.sound();
+        d1.walk();
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////
+013
+class A{
+    void print(){	//the methods of super class are inherited in sub class B
+        System.out.println("Print");
+    }
+}
+
+class B extends A{
+
+}
+
+class Demo{
+    public static void main(String[] args) {
+        B b= new B();
+        b.print();
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////
+014
+class A{
+    int x=10;
+    void print(){
+        System.out.println("Print");
+    }
+}
+
+class B extends A{
+
+}
+
+class Demo{
+    public static void main(String[] args) {
+        B b= new B();
+        b.print();
+        System.out.println(b.x);;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+015
+class A{
+    int x=10;
+    private void print(){  //does not inherit to sub class
+        System.out.println("Print");
+    }
+}
+
+class B extends A{
+
+}
+
+class Demo{
+    public static void main(String[] args) {
+        B b= new B();
+        b.print();// 
+        System.out.println(b.x);;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+016
+import javax.swing.*;
+
+class Calculator extends JFrame{
+    Calculator(){
+        setSize(300,300);
+        setDefaultCloseOperation(3);
+        setTitle("Sample");
+        setVisible(true);
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+
+        new Calculator();
+        new Calculator();
+
+        }
+    }
+////////////////////////////////////////////////////////////////////////////////////
+017
+class A{
+	int a;
+	public void printA(){
+		System.out.println("A : "+a);
+	}
+}
+class B extends A{
+	int b;
+	public void printB(){
+		System.out.println("B : "+b);	
+	}
+	public void callPrint(){
+		printA(); // ?
+		printB();
+	}
+	public void printAB(){
+		System.out.println("A : "+a);// ?
+		System.out.println("B : "+b);	
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
+018
+class A{
+    void getA(){
+        System.out.println("A");
+    }
+}
+
+class B extends  A{
+    void getB(){
+        System.out.println("B");
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+        B b1= new B();
+        b1.getA();
+        b1.getB();
+        ///------------------
+        A a1= new A();
+        a1.getA();
+        /*a1.getB();*/  //super class cannot access sub class properties
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+19
+class A{
+    int a;
+    public void printA(){
+        System.out.println("A : "+a);
+    }
+}
+class B extends A{
+    int b;
+    public void printB(){
+        System.out.println("B : "+b);
+    }
+    public void callPrint(){
+        printA(); //Legal ?
+        printB();
+    }
+    public void printAB(){
+        System.out.println("A : "+a);	 //Legal ?
+        System.out.println("B : "+b);
+    }
+}
+class Demo{
+    public static void main(String args[]){
+        A a1=null;
+        a1.a=100;	//null point exeception - run time
+        //a1.x=200; //Illegal
+        a1.printA();
+        //a1.mA(); //Illegal
+
+        B b1=null;
+        b1.a=100; //Legal ?
+        b1.b=200;
+        //b1.y=12;
+        b1.printA(); //Legal ?
+        b1.printB();
+        b1.callPrint();
+        //b1.mB();
+
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////
+20
+class Super{
+    int a;
+    static {
+        System.out.println("Static in Super");
+    }
+}
+
+class Sub extends Super{
+    int b;
+    static {
+        System.out.println("Static in Sub");
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+        new Sub();
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////
+
+21
+class Super1{
+
+    Super1(){
+        super(); // Object
+       // this(10);
+    }
+    Super1(int x){
+
+    }
+
+    int a;
+    static {
+        System.out.println("Static in Super");
+    }
+}
+
+class Sub extends Super1{
+    Sub(){
+        super();
+    }
+
+    int b;
+    static {
+        System.out.println("Static in Sub");
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+        new Sub();
+    }
+}
+
+====================================================================================
+method overriding
+====================================================================================
+
+22
+class Animal{
+    void walk(){
+        System.out.println("Animal Walk");
+    }
+}
+
+class Cat extends Animal{
+    void walk(){
+        System.out.println("Cat Walk");
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+        Cat c1=new Cat();
+        c1.walk();
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+23
+class Animal {
+    void walk() {
+        System.out.println("Animal Walk");
+    }
+}
+
+class Cat extends Animal {
+    void walk() {
+        System.out.println("Cat Walk");
+    }
+}
+
+class Demo {
+    public static void main(String[] args) {
+       /* Animal a = new Animal();
+        a.walk();*/
+       /*Animal a= new Cat();
+       a.walk();*/
+       /*Cat c= new Cat();
+       c.walk();*/
+       /*Cat c= new Animal();*/
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+co varient return type
+24
+
+class Animal {
+    Animal walk() {
+        Animal a1= new Animal();
+        return a1;
+    }
+
+}
+class Cat extends Animal {
+    Cat walk() {
+        Cat c1= new Cat();
+        return c1;
+    }
+}
+
+class Demo {
+    public static void main(String[] args) {
+
+    }
+}
+
+----------------------------------------------------------------------------------
+
+class Vehicle{
+	Vehicle speed(){
+		Vehicle v1 = new Vehicle();
+		return v1;
+	}
+}
+
+class Car extends Vehicle{
+	Car speed(){
+		Car c1 = new Car();
+		return c1;
+	}
+}
+
+class Demo{
+	public static void 
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+25
+class Animal{
+    Animal get(){
+        return new Animal();
+    }
+}
+
+class Cat extends Animal{
+    Cat get(){
+        return new Cat();
+    }
+}
+class Dog extends Animal{
+    Fish get(){
+        return new Fish();
+    }
+}
+class Fish extends Animal{
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+26
+
+class A{
+    int a;
+    public void myMethod(int x){
+        System.out.println("myMethod(int) of A");
+    }
+}
+class B extends A{
+    int b;
+    public void myMethod(int x){ //Method Overriding (Same signature)
+        System.out.println("myMethod(int) of B");
+    }
+}
+
+class Demo{
+    public static void main(String args[]){
+        A a1=new A();
+        a1.myMethod(100);
+
+        a1=new B();                 //dynamic method dispatch
+        a1.myMethod(100);
+    }
+}
+
+========================================================================
+inheritance
+========================================================================
+Rules------------------
+01.
+class A{
+    A(){
+
+    }
+   A(int x){
+       
+   }
+}
+class B extends A{
+
+}
+
+class Demo{
+    public static void main(String args[]){
+     B b1= new B();
+    }
+}
+//////////////////////////////////////////////////////
+2
+class A{
+    A(int x) {
+
+    }
+}
+
+class B extends A {
+    B(int y) {
+        super(y);
+    }
+}
+
+class Demo {
+    public static void main(String args[]) {
+        B b1 = new B(10);
+    }
+}
+////////////////////////////////////////////////////
+3
+class A{
+    
+}
+
+class B extends A {
+    B(int y) {
+      //super(); 
+    }
+}
+
+class Demo {
+    public static void main(String args[]) {
+        B b1 = new B(10);
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+04
+
+class Demo {
+
+    int instanceNumber;
+    static int staticNumber;
+
+    static void getName(){
+        System.out.println("static Name");
+    }
+
+    void getAge(){
+        System.out.println("Instance Age");
+    }
+
+
+    public static void main(String args[]) {
+        getName();
+        //getAge();  //instance cannot be accessed within a static context
+        //----------------------
+        new Demo().getAge();  //using new keyword, instance can be accessed
+        new Demo().getName();
+        //----------------------
+        staticNumber=10;
+        //instanceNumber=20; //instance variables cannot be accessed within static context
+        //---------------------
+        new Demo().instanceNumber=20;
+        new Demo().staticNumber=10;
+        //----------------------
+        Demo.getName();
+        //Demo.getAge(); //instance cannot be accessed using class name
+        //----------------------
+        Demo.staticNumber=20;
+       // Demo.instanceNumber=20; //instance cannot be accessed
+        
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////
+05
+
+class A{
+    static int staticNumber;
+    int instanceNumber;
+}
+
+class Demo {
+    public static void main(String args[]) {
+        A a1= new A();
+        a1.instanceNumber=20;
+        a1.staticNumber=20;
+        System.out.println(a1.instanceNumber);
+        System.out.println(a1.staticNumber);
+        A a2= new A();
+        a2.staticNumber=50;
+        System.out.println(a1.staticNumber);
+        System.out.println(a2.staticNumber);
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+06
+
+class Demo {
+    static int staticNumber;
+    int instanceNumber;
+    
+    public static void main(String args[]) {
+        this.instanceNumber;
+        this.staticNumber=20;
+        new Demo().instanceNumber=20;
+    }
+    
+    {
+      this.instanceNumber=20;
+      this.staticNumber=20;
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////
+overiding rules
+///////////////////////////////////////////////////////////////////////////////////
+07
+
+class Vehicle{ // Super Class
+    public static void park(){
+        System.out.println("Vehicle Park");
+    }
+}
+class Car extends Vehicle{
+    public void park(){
+        System.out.println("Car Park");
+    }
+}
+
+class Demo {
+    public static void main(String[] args) {
+        
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+08
+
+class Vehicle{ // Super Class
+    public static void park(){
+        System.out.println("Vehicle Park");
+    }
+}
+class Car extends Vehicle{
+    public static void park(){
+        System.out.println("Car Park");
+    }
+}
+
+class Demo {
+    public static void main(String[] args) {
+        Vehicle vehicle = new Vehicle();
+        Vehicle car = new Car();
+        vehicle.park();
+        car.park();
+    }
+}
+///////////////////////////////////////////////////////////////////
+09
+
+class Vehicle{ // Super Class
+    public  void park(){
+        System.out.println("Vehicle Park");
+    }
+}
+class Car extends Vehicle{
+    public  void park(){
+        System.out.println("Car Park");
+    }
+}
+
+class Demo {
+    public static void main(String[] args) {
+        Vehicle vehicle = new Vehicle();
+        Vehicle car = new Car();
+        vehicle.park();
+        car.park();
+    }
+}
+
+////////////////////////////////////////////////////////////////////
+10
+
+class Vehicle { // Super Class
+     void park() {
+        System.out.println("Vehicle Park");
+    }
+}
+
+class Car extends Vehicle {
+       void park() {
+        System.out.println("Car Park");
+    }
+}
+
+class Demo {
+    public static void main(String[] args) {
+        Vehicle vehicle = new Vehicle();
+        Vehicle car = new Car();
+        vehicle.park();
+        car.park();
+    }
+}
+///////////////////////////////////////////////////////////////////
+12
+
+class Vehicle { // Super Class
+     protected void park() {
+        System.out.println("Vehicle Park");
+    }
+}
+
+class Car extends Vehicle {
+       public void park() {
+        System.out.println("Car Park");
+    }
+}
+
+class Demo {
+    public static void main(String[] args) {
+        Vehicle vehicle = new Vehicle();
+        Vehicle car = new Car();
+        vehicle.park();
+        car.park();
+    }
+}
+
+===============================================================================
+Abstraction
+===============================================================================
+01
+
+abstract class Phone1{
+    void call(){
+        System.out.println("Call");
+    }
+    abstract void getGeo(); // abstract Method
+}
+
+
+public class Demo {
+}
+
+/////////////////////////////////////////
+03
+
+abstract class Phone1{
+    void call(){
+        System.out.println("Call");
+    }
+    abstract void getGeo(); // abstract Method
+}
+
+class Phone2 extends Phone1{
+
+    @Override
+    void getGeo() {
+        
+    }
+}
+
+
+public class Demo {
+}
+//////////////////////////////////////////
+04
+abstract class Phone1{
+    void call(){
+        System.out.println("Call");
+    }
+    abstract void getGeo(); // abstract Method
+}
+
+abstract class Phone2 extends Phone1{
+    
+    abstract void getGeo();
+}
+
+
+public class Demo {
+}
+
+////////////////////////////////////////////////////////////////////////
+05
+abstract class Phone1{
+    void call(){
+        System.out.println("Call");
+    }
+    abstract void getGeo(); // abstract Method
+}
+
+abstract class Phone2 extends Phone1{
+    abstract void getGeo();
+    public void cal(){
+        //dfdfdfdf
+    }
+}
+
+
+public class Demo {
+}
+////////////////////////////////
+06
+abstract class Phone1{
+    void call(){
+        System.out.println("Call");
+    }
+    abstract void getGeo(); // abstract Method
+}
+
+abstract class Phone2 extends Phone1{
+    abstract void getGeo();
+    public void cal(){
+        //dfdfdfdf
+    }
+}
+
+class HeadSet{
+
+}
+
+
+public class Demo {
+    public static void main(String[] args) {
+        HeadSet set= new HeadSet();
+       // Phone2 p2= new Phone2();
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+07
+abstract class Phone1 {
+    void call() {
+        System.out.println("Call");
+    }
+    abstract void getGeo(); // abstract Method
+}
+
+class Phone2 extends Phone1 extends JFrame{
+
+    @Override
+    void getGeo() {
+        
+    }
+}
+
+
+
+public class Demo {
+    public static void main(String[] args) {
+    }
+}
+///////////////////////////
+08
+import javax.swing.*;
+
+interface Phone1 {
+    abstract void getGeo(); // abstract Method
+}
+
+class Phone2 extends JFrame implements Phone1 {
+
+    @Override
+    public void getGeo() {
+        
+    }
+}
+
+
+
+public class Demo {
+    public static void main(String[] args) {
+    }
+}
+///////////////////// DI------------------
+dependency injection
+
+class Girl{
+    public void kiss(){
+        System.out.println("lllllllllllllllll");
+    }
+}
+
+class Boy{
+    public void getKiss(){
+        while (true){
+            new Girl().kiss();
+        }
+    }
+}
+public class DI {
+    public static void main(String[] args) {
+        Boy b1= new Boy();
+        b1.getKiss();
+    }
+}
+--------
+class Girl{
+    public void kissMe(){
+        System.out.println("lllllllllllllllll");
+    }
+}
+
+class Boy{
+    public void getKiss(){
+        while (true){
+            new Girl().kiss();
+        }
+    }
+}
+public class DI {
+    public static void main(String[] args) {
+        Boy b1= new Boy();
+        b1.getKiss();
+    }
+}
+////////////////////
+interface GoodGirl{
+    public void kiss();
+}
+
+class Girl implements GoodGirl{
+    @Override
+    public void kiss() {
+        System.out.println("lllllllllllllllll");
+    }
+}
+
+class Boy{
+    public void getKiss(){
+        while (true){
+            GoodGirl girl=new Girl();
+            girl.kiss();
+        }
+    }
+}
+public class DI {
+    public static void main(String[] args) {
+        Boy b1= new Boy();
+        b1.getKiss();
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+09
+interface interfaceA{
+    
+}
+
+class classB{
+    
+}
+
+class subClass extends classB implements interfaceA{
+    
+}
+/////////////////////////////
+
+10
+interface interfaceA{
+
+}
+
+class classB{
+
+}
+
+class subClass implements interfaceA extends classB {
+
+}
+//////////////////////////
+11
+interface interfaceA{
+
+}
+
+class classA{
+    
+}
+
+interface interfaceB extends interfaceA{
+    
+}
+/////////////////////////////
+interface interfaceA {
+    void get();
+}
+
+interface interfaceB {
+    void get();
+}
+
+interface interfaceC extends interfaceA,interfaceB{
+
+}
+class A implements interfaceC{
+
+    @Override
+    public void get() {
+        
+    }
+}
+///////////////////////////////////////////////////////////////////////
+
+abstract class Dep5Phone{
+    void call(){
+        System.out.println(" call...... ");
+    }
+    abstract void dance();
+}
+
+abstract class Dep6Phone extends Dep5Phone{
+    abstract void dance();
+    void getGeo(){
+        System.out.println("get Geo");
+    }
+}
+
+class Dep7Phone extends Dep6Phone{
+
+    @Override
+    void dance() {
+        System.out.println("dance.....");
+    }
+}
+
+
+public class Demo {
+    public static void main(String[] args) {
+        Dep7Phone phone=new Dep7Phone();
+        phone.dance();
+        phone.call();
+        phone.getGeo();
+    }
+}
+
+================================================================================
+polymorphism
+================================================================================
+interface Vehicle{
+   void park();
+}
+
+class Car implements Vehicle{
+
+    @Override
+    public void park() {
+        System.out.println(" Car Park");
+    }
+}
+
+class Van implements Vehicle{
+    @Override
+    public void park() {
+        System.out.println("Van Park");
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+        Vehicle vehicle1=new Car();
+        vehicle1.park();
+        Vehicle vehicle2=new Van();
+        vehicle2.park();
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+imposible method overriding
+
+class Calculator{
+    int sum(int num1, int num2){
+        return (num1+num2);
+    }
+    int sum(int num1, int num2, int num3){
+        return (num1+num2+num3);
+    }
+    int sum(int num1, int num2, int num3, int num4){
+        return (num1+num2+num3+num4);
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+        System.out.println(new Calculator().sum(10,20));
+        System.out.println(new Calculator().sum(10,20,20));
+        System.out.println(new Calculator().sum(10,20,20,30));
+    }
+----------------------------------------------------------------------------------
+use var args instead of that
+
+class Calculator{
+
+    int sum(int...params){
+        int total=0;
+        for (int i = 0; i <params.length ; i++) {
+            total+=params[i];
+        }
+        return total;
+    }
+   /* int sum(int num1, int num2){
+        return (num1+num2);
+    }
+    int sum(int num1, int num2, int num3){
+        return (num1+num2+num3);
+    }
+    int sum(int num1, int num2, int num3, int num4){
+        return (num1+num2+num3+num4);
+    }*/
+}
+
+class Demo{
+    public static void main(String... args) {
+        System.out.println(new Calculator().sum());
+        System.out.println(new Calculator().sum(10,20));
+        System.out.println(new Calculator().sum(10,20,20));
+        System.out.println(new Calculator().sum(10,20,20,30));
+    }
+}
+
+---------------------------------------------------------------------------------
+class Calculator{
+
+    int sum(int... params,String name){// wrong , should mention as last variable
+        int total=0;
+        for (int param : params) {
+            total+=param;
+        }
+        return total;
+    }
+   /* int sum(int num1, int num2){
+        return (num1+num2);
+    }
+    int sum(int num1, int num2, int num3){
+        return (num1+num2+num3);
+    }
+    int sum(int num1, int num2, int num3, int num4){
+        return (num1+num2+num3+num4);
+    }*/
+}
+
+class Demo{
+    public static void main(String[] args) {
+        System.out.println(new Calculator().sum());
+        System.out.println(new Calculator().sum(10,20));
+        System.out.println(new Calculator().sum(10,20,20));
+        System.out.println(new Calculator().sum(10,20,20,30));
+    }
+}

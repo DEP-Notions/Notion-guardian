@@ -1,0 +1,140 @@
+Number formatter
+String formatter
+Date  & Time
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+💠️Number Formatter
+
+NumberFormat ni = NumberFormat.getIntegerInstance();
+        ni.setMaximumIntegerDigits(3);
+        ni.setMinimumIntegerDigits(3);
+        String formattedString = "C" + ni.format(25);
+        System.out.println(formattedString);
+        
+print -> C025
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+💠️String Formatter
+
+System.out.println(String.format("Rs. %,.2f",1500f));
+System.out.println(String.format("Rs %1$,.2f has been withdrawed from the A/C no AC-%2$04d-xx", 1200f, 123));
+System.out.println(String.format("Rs %1$,.2f has been withdrawed from the A/C no AC-%2$04d-xx " +
+                "on %3$tY-%3$tB-%3$td", 1200f, 123, new Date()));
+                
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+💠️Get Date & Time
+
+=============================================================================================================
+💠️java.uti.Calender 
+====================
+
+Calendar c  = Calendar.getInstance();
+c.set(2020, Calendar.APRIL, 01, 12, 30);
+System.out.println(String.format("C%03d Customer has withdrawn $%.2f from his bank AC number" +
+                " BOC-%04d-FD  on %4$tY/%4$tB/%4$td at %4$tI.%4$tM %4$Tp", 1, 1725.25f, 34,c));
+c.getTime();
+
+print-->
+C001 Customer has withdrawn $1725.25 from his bank AC number BOC-0034-FD  on 2020/April/01 at 12.30 PM
+
+=============================================================================================================
+💠️Date
+=========
+
+Date d = new Date()
+
+🔵️There are several issues
+	same class in two packages in java.util and java.sql 
+	have to import java.text.*  - contain all classes
+	multiple threds are working on date
+
+=========================================================================
+💠️java.time.localDate - new Date in java 1.8
+=====================
+
+LocalDate d = LocalDate.now(); //today's date
+System.out.println(d);
+LocalDate d1 = LocalDate.of(2020, 8, 20);
+System.out.println(d1);
+LocalDate d2 = LocalDate.of(2020, Month.AUGUST, 29);
+System.out.println(d2);
+
+print ->
+2020-10-01
+2020-08-20
+2020-08-29
+
+=============================================================================================
+💠️java.time.LocalTime
+=====================
+
+LocalTime t = LocalTime.now();  //give current time
+LocalTime t = LocalTime.now(ZoneId.of("Asia/Kuwait"))  //human readable can get zone ids
+Instant i = Instant.now();               //machine readable time
+
+
+for(String s: ZoneId.getAvailableZoneIds()){      //method returns a set
+	System.out.println(s);                    
+	
+}
+
+===============================================================================================
+💠️ class BigDecimal
+
+double d1 = 0.3;
+double d2 = 0.2;
+
+/* BigDecimal bd1 = new BigDecimal("0.3");
+BigDecimal bd2 = new BigDecimal("0.2");*/
+
+BigDecimal bd1 = BigDecimal.valueOf(d1);
+BigDecimal bd2 = BigDecimal.valueOf(d2);
+
+System.out.println(bd1.subtract(bd2));
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+💠️ create tables in sql
+========================
+
+CREATE TABLE AccountHolder(
+    account_no INT AUTO_INCREMENT PRIMARY KEY ,
+    full_name VARCHAR(50) NOT NULL ,
+    username VARCHAR(20) NOT NULL ,
+    password VARCHAR(20) NOT NULL ,
+    CONSTRAINT uk_account_holder UNIQUE (username)
+);
+
+CREATE TABLE Transaction(
+    transaction_id INT AUTO_INCREMENT,
+    type ENUM('CREDTI','DEBIT'),
+    date DATE,
+    amount DECIMAL,
+    account_no INT,
+    CONSTRAINT pk_transaction PRIMARY KEY (transaction_id),
+    CONSTRAINT fk_transaction FOREIGN KEY(account_no) REFERENCES AccountHolder(account_no)
+);
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

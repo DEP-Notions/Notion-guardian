@@ -1,0 +1,6 @@
+npm ls
+npm i <package_name> = npm install <package_name>
+npm install
+npm uninstall <packag_name>
+npm outdated
+npm update

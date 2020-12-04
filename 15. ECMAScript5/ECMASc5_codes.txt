@@ -1,0 +1,12 @@
+ECMAScript5
+
+=================================================================================
+RegExp
+
+create object	- new RegExp()
+create literal	- /expression/
+
+var RegExp = /^C\d{3}$/;
+regExp.test(TEST_STRING);
+
+=================================================================================

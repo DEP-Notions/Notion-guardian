@@ -1,0 +1,41 @@
+
+========================================================================
+CSS colors
+
+background	-	background-color:DodgerBlue;
+text		-	color:Tomato;
+border		-	border:2px solid Violet;
+
+========================================================================
+Backgrounds
+
+background-color: green;
+opacity: 0.3; (=transparency)
+
+background-image: url("paper.gif");
+
+background-image: url("img_tree.png");
+background-repeat: no-repeat;  (repeat-x; repeat-y;)
+background-position: right top;
+
+background-attachment: scroll; / fixed;
+	-background image should scroll or be fixed
+	
+
+float: right; / right/ none / inherit
+	-positioning and formatting content
+
+////////////////////////////////////////////////////////////////////////////////
+Flex box
+======================
+
+🔵️ flex-direction --> define main axis and the direction
+
+flex-direction: row;		- row left to write
+flex-direction: row-reverse;	- row right to left
+flex-direction: column;		- column top to bottom
+flex-direction: column-reverse;	- column bottom to top
+
+
+
+

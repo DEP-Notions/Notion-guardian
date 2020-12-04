@@ -1,0 +1,72 @@
+Create table Customer(
+id varchar(10) Not null,
+name varchar(15),	
+address varchar(20),
+salary decimal(6,2),
+Constraint primary key (id)
+) ENGINE=INNODB; 
+
+Create table Orders(
+id varchar(10) Not null,
+date Date,
+customerId varchar(10),
+Constraint primary key(id),
+Constraint foreign key(customerId) references Customer(id) 
+) ENGINE=INNODB;
+
+Create table Item(
+code varchar(10) Not null,
+description varchar(30),
+unitPrice decimal(6,2),
+qtyOnHand int(5),
+Constraint primary key (code)
+) ENGINE=INNODB; 
+
+Create table OrderDetail(
+orderId varchar(10) Not null,
+itemCode Varchar(10) Not null,
+qty int(5),
+unitPrice decimal(6,2),
+Constraint primary key (orderId,itemCode),
+Constraint foreign key(orderId) references Orders(id),
+Constraint foreign key(itemCode) references Item(code)  
+)ENGINE=INNODB;
+
+
+INSERT INTO Customer VALUES ('C001','Kamal','Galle',5000);
+INSERT INTO Customer VALUES ('C002','Nimal','Matara',3000);
+INSERT INTO Customer VALUES ('C003','Anil','Panadura',4000);
+INSERT INTO Customer VALUES ('C004','Sunil','Kaluthara',8000);
+INSERT INTO Customer VALUES ('C005','Wimal','Kandy',3000);
+
+
+INSERT INTO Item VALUES ('I001','Dhal',125,100);
+INSERT INTO Item VALUES ('I002','Rathu Kakulu',65,80);
+INSERT INTO Item VALUES ('I003','Sugar',110,70);
+INSERT INTO Item VALUES ('I004','Anchor',375,120);
+INSERT INTO Item VALUES ('I005','Dhal',125,100);
+INSERT INTO Item VALUES ('I006','Soap',35,200);
+INSERT INTO Item VALUES ('I007','Biscuit',45,70);
+INSERT INTO Item VALUES ('I008','Sudu Kakulu',62,100);
+INSERT INTO Item VALUES ('I009','Chilie Powder',250,42);
+INSERT INTO Item VALUES ('I010','Sauce',145,50);
+
+
+INSERT INTO Orders VALUES ('OD001','2013-02-12','C001');
+INSERT INTO Orders VALUES ('OD002','2013-02-11','C001');
+INSERT INTO Orders VALUES ('OD003','2013-02-11','C003');
+
+
+INSERT INTO OrderDetail VALUES ('OD001','I001',2,125);
+INSERT INTO OrderDetail VALUES ('OD001','I002',5,65);
+INSERT INTO OrderDetail VALUES ('OD001','I010',1,145);
+INSERT INTO OrderDetail VALUES ('OD001','I007',2,45);
+INSERT INTO OrderDetail VALUES ('OD001','I003',1,110);
+INSERT INTO OrderDetail VALUES ('OD002','I010',2,145);
+INSERT INTO OrderDetail VALUES ('OD002','I008',3,62);
+INSERT INTO OrderDetail VALUES ('OD002','I003',2,110);
+INSERT INTO OrderDetail VALUES ('OD003','I001',1,125);
+INSERT INTO OrderDetail VALUES ('OD003','I004',1,375);
+INSERT INTO OrderDetail VALUES ('OD003','I006',5,35);
+INSERT INTO OrderDetail VALUES ('OD003','I009',1,250);
+INSERT INTO OrderDetail VALUES ('OD003','I007',3,45);

@@ -1,0 +1,141 @@
+
+========================================================
+represent jQuery 
+
+jQuery.
+$.
+
+=======================================================
+most used functions
+
+text([value])
+html([value])
+css(property, [value])
+attr(property, [value])
+
+=======================================================
+access html elements
+
+$("h1").text();
+$("h1").html();
+$("h1").text('change text');
+
+=======================================================
+Forms
+
+val([value])
+submit()
+
+======================================================
+events
+
+$("#btn-save").on('click',function (){
+   alert("okay");
+});
+
+======================================================
+specific events for ease of use
+
+$("#btn-save").click(function (){
+    alert("okay");
+});
+
+dbclick(function)
+foucs(function)
+blur(function)
+keydown(function)
+keyup(function)
+keypress(function)
+mousedown(function)
+mouseup(function)
+mousemove(function)
+
+========================================================
+several event listners to same button
+
+$("#btn-save").click(function (){
+   alert("first");
+});
+
+$("#btn-save").click(handleClick);
+function handleClick(){
+    alert("second");
+
+========================================================
+detach one listner from  button
+
+$("#btn-detach").click(function (){
+    $("#btn-save").off('click', handleClick);
+});
+
+========================================================
+detach all listners from button
+
+$("#btn-detach-all").click(function (){
+    $("#btn-save").off('click');
+});
+
+========================================================
+Traversing
+
+children | find       - return array
+parent   | parents    - return array
+first
+last
+
+=========================================================
+Manipulation
+
+append
+prepend
+clone
+remove
+replaceWith
+
+==========================================================
+
+* jQuery object - can be put "." and call another thing
+
+$("#courses").parent()
+
+* not an object with []
+
+$("#courses").parent()[2]
+
+* convert to object
+
+$($("#courses").parent()[2])
+
+=============================================================
+
+* api.jquery.com -> all references
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,12 @@
+/////////////////////////////////////////////////////////////////////////////////
+finding errors in fxports
+===========================
+1. open terminal in Desktop 
+2. get error code as text file to desktop
+	adb logcat -v threadtime > debug.log
+3. open file in vs code
+4. go to bottom of the file
+5. check with time/ check with keywords and find the error - use package name lk.ijse...
+6. there are two id s process id and thread id after the time
+7. search by process id and get the logs highlight that in our application
+8. go the log like error log(so many logs together)

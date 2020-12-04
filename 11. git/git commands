@@ -1,0 +1,334 @@
+git --version
+
+//////////////////////////////////////////////////////////////////////////////////
+configurations
+==================
+
+check configurations
+------------------------
+git config --[local|global|local]  --list
+
+add configuration
+--------------------
+git config --[system|global|local] --add <config.name> < config.value>
+
+git config --global --add user.name "Lucky Prabath"
+git config --global --add user.email "lucky.prabath94@gmail.com"
+git config --global --add core.editor gedit
+
+unset confi
+--------------
+git config --[system|global|local] --unset <config.name>
+
+
+update git version
+--------------------------------------------
+sudo add-apt-repository ppa:git-core/ppa
+sudo  apt-get update
+sudo apt-get upgrade
+
+/////////////////////////////////////////////////////////////////////////////////
+Reopsitory
+============
+
+create repository
+------------------
+opne terminal in folder
+	git init
+	
+to check status of the repostitory
+----------------------------------	 
+	git status
+
+add wd files to indexing stage( . used for add all at once)
+------------------------------	
+git add <file1> <file2> <file3>
+git add . 
+
+put indexing stage files to repository
+---------------------------------------
+git commit	
+
+message + git commit
+---------------------------
+git commit [-m "Commit Message"]     //single line message
+Verb [Commanding Verb] + Message
+
+<Message>
+
+
+compare the difference 
+----------------------------------------------
+git diff <file1> <file2>       (WD and Indexing Stage)
+
+git diff <commit_hash>               (WD and local repo)
+git diff <commit_hash> --<file_name>  (compare only mentioned file)
+
+git diff --cached <commit_hash>     (compare local repo and indexing stage)
+
+get details of a commit
+------------------------
+git log
+
+git log --oneline (only first message line) 
+
+skip indexing stage - 
+-------------------------
+git commit -a
+git commit -am "message"  //with message
+
+* automatically save to indexing stage
+* also should be a track file
+
+🔵️ change last commit messege
+
+git commit --amend
+
+==============================================================================
+DIFF FILTERS
+==============================================================================
+to see the occured changes
+
+git log
+git diff
+git show
+
+
+--name-only       //show only files
+--name-status  // can identify the change fo files also
+F, B, Q for Forward, Back, Quite
+
+A = added
+D = deleted
+M = modified
+R = Renamed
+
+Example:-
+git log --name-only --oneline
+git log --name-status --oneline
+
+difference of current project & previous version
+------------------------------------------------
+git diff <commit_hash>  //get from git log
+
+============================================================================
+LIMITING COMMITS
+============================================================================
+
+use thsese with git log commands
+
+-n {n is a positive number}
+Ex:- git log -5
+
+
+==========================================================================
+🔴️ Checkout - walking in timeline of project 
+==========================================================================
+detach state?
+	head is not pointing a branch
+
+to move forward and backward in commit history
+git checkout <commit_hash>
+git checkout <commit_hash> = git switch [--detach] <comiit_hash>
+
+git checkout <branch>    Ex:- git checkout master  //point head to branch
+git checkout <branch> = git switch
+
+🔶️only to check state, not to do any changes
+
+=========================================================================
+🔴️ reset - Restore whole project
+========================================================================
+
+git reset [reset_option] <commit>
+
+three reset options
+--------------------
+--soft   (occuring squash)  -just move head
+--mixed (default)	   - copies the commit snap shot into indexing stage
+--hard			   - copies the indexing stage into WD (WD not safe)
+
+get the locations that head moved
+--------------------------------
+git reflog
+
+=====================================================================
+to preserve files in WD
+*first need to reset -mixed
+*then need to  reset -hard
+
+===============================================================================
+Restoring files
+===============================================================================
+
+git checkout <commit> -- <file(s)>
+Ex:- git checkout HEAD -- AppInitializer.java
+
+🔶️second method
+------------------------------------
+🔵️ copying insexing stage file to WD
+git restore <file>
+
+🔵️ select any previous version(source) of file to restore (local repo to WD)
+git restore --source <commit> <file(s)>
+
+🔵️copying to indexing stage 
+git restore --source <commit> --staged <file>
+
+🔵️ copy to both WD & IS, from getting local repo
+git restore --source <commit> --staged --worktree <file(s)>
+
+===============================================================================
+Git reset with Paths
+===============================================================================
+
+git reset [reset option] <commit> -- <file(s)> 
+git restore --source <commit> --staged <file(s)>
+🔶️if don't specify the --source option, by default it uses --source HEAD
+
+🔶️ to unstage files
+🔶️ can specify onyly mixed, therefore no need to mention & defaultly copying to
+file(s) to indexing stage
+
+
+HEAD~1 - one hash vlue below head
+HEAD~2 - two hash values below
+
+
+===============================================================================
+Squashing
+===============================================================================
+
+1. soft reset to remove unwanted commits
+2. again commit the last reuired step that has done previously
+
+===============================================================================
+git ignore files
+===============================================================================
+
+🔶️ empty folders are not track.
+therefore add an empty file ".gitkeep" to that folder, then other can use folder
+
+🔵️ ignore the files
+---------------------
+create a ".gitignore" file and add file & folder name that need to ignore as below
+
+FILE_NAME	- ignore that file
+FOLDER_NAME	- ignore this folder
+FOLDER_NAME/FILE_NAME	- ignore file in folder
+FOLDER_NAME/*.FILE_EXTENSIONS	- ignore all files with this extension in folder
+FILE_NAME	-ignore all files in this name
+*.FILE_EXTENSION	- ignore all files with this extension
+
+🔶️ the files we are goind to ingore are already in repository, then it is also in the indexing stage.
+so, it is not ignored, if we mention in ".gitignore" file 
+need to remove from indexing stage
+
+1. remove file using rm  - git rm <file_name>
+2. restore again to WD   - git checkout <commit> -- <file> 
+
+🔵️ remove files both indexing stage and WD
+-------------------------------------------
+git rm <file_name>
+
+🔵️ remove only from indexing stage
+-----------------------------------
+git rm --cached <file(s)>
+
+////////////////////////////////////////////////////////////////////////////////
+
+Remotes
+===============
+
+git remote	:to list all remote repositories
+git remote add <remote_name> <url>     //name convension = 'origin'
+git remote -v	:to list push and fetch urls
+git branch -vv	: list tracking branches
+git remote remove <remote_name>
+
+git push <remote_name> <branch(es)>
+git push -u <remote_name> <branch(es)> : this sets local branches to track remote branches
+
+🔶️to store the password username to user
+git config --global --add credential.helper store
+
+push	- copying local repo to cloud than remote repo
+fetch	- copying cloud to remote repo
+pull	- copying cloud to remote repo then local repo
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+git branches
+==================
+
+git branch 	- list branches
+git branch -v	- list all branches with metadata
+
+git branch <branch_name> [starting point]
+starting point: POINTER (HEAD, master, etc..), commit, tag  default-head
+
+
+git checkout <branch_name> 	- switch head brach to brach
+git switch <branch_name>		- switch head brach to brach (new command)
+
+git log --oneline --graph
+git log --oneline --all	--graph	- see details of all the branches
+
+🔵️delete branches
+
+git branch -d  <branch_name(s)> 		- delete branches
+git branch -d -f <branch_name(s)> 	- delete branches
+git branch -D <branch_name(s)>		- delete branches forcefully
+
+🔵️create new branch and then switch
+
+git branch <branch_name> + git checkout <branch_name>
+------------------------------------------------------
+git checkout -b <branch_name> [starting point]
+git switch -c <branch_name> [starting_point]
+
+🔵️rename branch
+
+git branch -m <old_branch_name> <new_branch_name>
+git branch -m -f [<old_branch_name>] <new_branch_name>
+git branch -M [<old-branch_name>] 
+
+git push -u <remote_name> --all 	- push all branches at once
+
+🔵️ diff filters
+
+git difff <branchname1> <branchname2>
+
+🔵️ list branches
+
+git branch -r 	- list remote branches
+git branch -a | --all 	- lis all branches (local + remote)
+
+git push <remote> --delete <branch>
+eg:- git push origin --delete manage_item
+
+🔵️ delete remote
+
+git remote remove <remote_name>
+
+🔵️ add remote
+
+git remote add <remote_name> <url>
+
+🔵️ rename remote branch
+
+rename local branch
+delete remote branch
+git branch --unset-upstream <branch(local branch)>  - remove tracking of a branch
+push the new local branch to the remote
+
+/////////////////////////////////////////////////////////////////////////
+clone project from github to desktop
+
+git clone <project_url_git>
+
+
+
+
+
