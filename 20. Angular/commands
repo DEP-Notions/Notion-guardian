@@ -1,0 +1,22 @@
+install
+> npm install -g @angular/cli
+
+
+create new project
+> ng new hello-angular
+
+enforce stricter type ckecking ? yes
+angular routine ? no
+style sheet - scss
+
+create app component under app
+> ng g c test
+
+ ng g c directives --skipTests=true
+
+create service
+> ng g s service/task --skipTests=true
+
+ng g class model/task --skipTests=true
+
+
